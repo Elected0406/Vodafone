@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-Vodafone-4480bf33-c44b-42ff-a9d8-dc3ea388eb8f",
 
   "dependencies": {
@@ -41,10 +41,11 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "bootstrap": "4.0.0-alpha6"
   },
 
   "tools": {
