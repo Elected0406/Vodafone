@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Vodafone.Models;
 
 namespace Vodafone.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(Keyfromlink keyfromlink)
         {
+            if (ModelState.IsValid) {
+                if (ValidateUserKeys(Model.Ids))
+            }
+            IEnumerable<UserKeys> keyfromlink.Atribute
+            ViewBag.Hepuhv = keyfromlink.Atribute;
+            ViewBag.Mepuhv = "Mepuhv";
+            ViewBag.Lepuhv = "Lepuhv";
+            ViewBag.Ulepuhv = "Ulepuhv";
+            ViewBag.Lpdrp = "Lpdrp";
             return View();
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -26,5 +36,9 @@ namespace Vodafone.Controllers
 
             return View();
         }
+    }
+    public class Keyfromlink
+    {
+        public int Atribute { get; set; } 
     }
 }
