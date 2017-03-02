@@ -9,31 +9,28 @@ namespace Vodafone.Controllers
 {
     public class HomeController : Controller
     {
-        Userdatabase db = new Userdatabase();
-
+        private EMPModel db = new EMPModel();
         [HttpGet]
-        public ActionResult Index(Keyfromlink keyfromlink)
+        public ViewResult Index(Keyfromlink keyfromlink)
         {
-            //var Keys = from p in Userdatabase.Keys select p;
-            //model.Persons = persons.ToList();
-            if (keyfromlink.Atribute.Equals(0))
-            {
-                ViewBag.Hepuhv = "Hepuhv0";
-                ViewBag.Mepuhv = "Mepuhv0";
-                ViewBag.Lepuhv = "Lepuhv0";
-                ViewBag.Ulepuhv = "Ulepuhv0";
-                ViewBag.Lpdrp = "Lpdrp0";
-            }
-
-            if (keyfromlink.Atribute.Equals(101))
-            {
-                ViewBag.Hepuhv = "Hepuhv101";
-                ViewBag.Mepuhv = "Mepuhv101";
-                ViewBag.Lepuhv = "Lepuhv101";
-                ViewBag.Ulepuhv = "Ulepuhv101";
-                ViewBag.Lpdrp = "Lpdrp101";
-            }
-            return View();
+            var vwfvpc1 = 562;
+            var sql2 = ("SELECT Id,Formula,Year,") +
+            ("ROUND(cast(SumMarket_Value as numeric(15,2)), 2) as SumMarket_Value,") +
+            ("ROUND(cast(StdevMarket_Value as numeric(15,2)), 2) as StdevMarket_Value,") +
+            ("ROUND(cast(AnualMarket_Value as numeric(15,2)), 2) as AnualMarket_Value,") +
+            ("ROUND(cast(MaxPriceFixed as numeric(15,2)), 2) as MaxPriceFixed,") +
+            ("ROUND(cast(VolumeFixProcent as numeric(15,2)), 2) as VolumeFixProcent,") +
+            ("ROUND(cast(VolumeTotal as numeric(15,2)), 2) as VolumeTotal, ") +
+            ("Indicator,") +
+            ("ROUND(cast(MinMarket_Date as numeric(15,2)), 2) as MinMarket_Date, ") +
+            ("ROUND(cast(MinMarket_Value as numeric(15,2)), 2) as MinMarket_Value, ") +
+            ("ROUND(cast(High as numeric(15,2)), 2) as High, ") +
+            ("ROUND(cast(Medium as numeric(15,2)), 2) as Medium,  ") +
+            ("ROUND(cast(Low as numeric(15,2)), 2) as Low ") +
+            ("FROM vwFormulaVPC WHERE Formula =") + vwfvpc1 +
+            ("order by [Year] desc");
+            var vwfvpc2 = db.vwFormulaVPC.SqlQuery(sql2).ToList();
+            return View(vwfvpc2);
         }
         public ActionResult About()
         {
@@ -51,6 +48,6 @@ namespace Vodafone.Controllers
     }
     public class Keyfromlink
     {
-        public int Atribute { get; set; } 
+        public int Atribute { get; set; }
     }
 }

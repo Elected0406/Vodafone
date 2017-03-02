@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EnergyMarketPriceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Formula">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Year" Type="smallint" />
+    <Property Name="Currency" Type="tinyint" Nullable="false" />
+    <Property Name="Unit" Type="tinyint" Nullable="false" />
+    <Property Name="Create" Type="datetime" Nullable="false" />
+    <Property Name="Period" Type="tinyint" Nullable="false" />
+    <Property Name="Market_ID" Type="int" Nullable="false" />
+    <Property Name="YearFrom" Type="smallint" Nullable="false" />
+    <Property Name="CalendarFrom" Type="tinyint" Nullable="false" />
+    <Property Name="YearTo" Type="smallint" Nullable="false" />
+    <Property Name="CalendarTo" Type="tinyint" Nullable="false" />
+    <Property Name="Flex" Type="bit" />
+    <Property Name="ScoreEMP" Type="bit" />
+    <Property Name="ScoreSpot" Type="bit" />
+    <Property Name="ScoreAVGMP" Type="bit" />
+    <Property Name="ScoreCostom" Type="bit" />
+    <Property Name="PerfectScoreValue" Type="money" />
+    <Property Name="LockUnlock" Type="bit" />
+    <Property Name="FixMinM" Type="tinyint" />
+    <Property Name="FixMinQ" Type="tinyint" />
+    <Property Name="FixMinY" Type="tinyint" />
+    <Property Name="TrancheLock" Type="tinyint" />
+    <Property Name="TrancheUnLockM" Type="tinyint" />
+    <Property Name="TrancheUnLockQ" Type="tinyint" />
+    <Property Name="TrancheUnLockY" Type="tinyint" />
+    <Property Name="TrancheLockFrom" Type="tinyint" />
+    <Property Name="TrancheLockTo" Type="tinyint" />
+    <Property Name="TrancheUnLockFromM" Type="tinyint" />
+    <Property Name="TrancheUnLockToM" Type="tinyint" />
+    <Property Name="TrancheUnLockFromQ" Type="tinyint" />
+    <Property Name="TrancheUnLockToQ" Type="tinyint" />
+    <Property Name="TrancheUnLockFromY" Type="tinyint" />
+    <Property Name="TrancheUnLockToY" Type="tinyint" />
+    <Property Name="AutoLockPriceKR" Type="money" />
+    <Property Name="AutoLockPriceNOK" Type="money" />
+    <Property Name="AutoLockPriceLTEDF" Type="money" />
+    <Property Name="CertPeriod" Type="tinyint" />
+    <Property Name="CertTranche" Type="tinyint" />
+    <Property Name="CertMin" Type="tinyint" />
+    <Property Name="CertMax" Type="tinyint" />
+    <Property Name="CertFixSession" Type="tinyint" />
+    <Property Name="FixMonth" Type="bit" />
+    <Property Name="FixQuarter" Type="bit" />
+    <Property Name="FixYear" Type="bit" />
+    <Property Name="FixSession" Type="tinyint" />
+    <Property Name="BestPrice" Type="bit" />
+    <Property Name="HourToFix" Type="time" Precision="0" />
+    <Property Name="HourToFixCert" Type="time" Precision="0" />
+    <Property Name="History" Type="bit" />
+    <Property Name="NoFriday" Type="bit" />
+    <Property Name="PublicKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TGEIndex" Type="bit" />
+    <Property Name="HourToTGEIndex" Type="time" Precision="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwFormulaVPC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Formula" Type="int" />
+    <Property Name="Year" Type="smallint" />
+    <Property Name="SumMarket_Value" Type="float" />
+    <Property Name="StdevMarket_Value" Type="float" />
+    <Property Name="AnualMarket_Value" Type="float" />
+    <Property Name="MaxPriceFixed" Type="float" />
+    <Property Name="VolumeFixProcent" Type="decimal" Precision="38" Scale="6" />
+    <Property Name="VolumeTotal" Type="money" />
+    <Property Name="Indicator" Type="varchar" MaxLength="8" />
+    <Property Name="MinMarket_Date" Type="smalldatetime" />
+    <Property Name="MinMarket_Value" Type="float" />
+    <Property Name="High" Type="float" />
+    <Property Name="Medium" Type="float" />
+    <Property Name="Low" Type="float" />
+  </EntityType>
+  <EntityContainer Name="EnergyMarketPriceModelStoreContainer">
+    <EntitySet Name="Formula" EntityType="Self.Formula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwFormulaVPC" EntityType="Self.vwFormulaVPC" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwFormulaVPC].[ID] AS [ID], 
+    [vwFormulaVPC].[Formula] AS [Formula], 
+    [vwFormulaVPC].[Year] AS [Year], 
+    [vwFormulaVPC].[SumMarket_Value] AS [SumMarket_Value], 
+    [vwFormulaVPC].[StdevMarket_Value] AS [StdevMarket_Value], 
+    [vwFormulaVPC].[AnualMarket_Value] AS [AnualMarket_Value], 
+    [vwFormulaVPC].[MaxPriceFixed] AS [MaxPriceFixed], 
+    [vwFormulaVPC].[VolumeFixProcent] AS [VolumeFixProcent], 
+    [vwFormulaVPC].[VolumeTotal] AS [VolumeTotal], 
+    [vwFormulaVPC].[Indicator] AS [Indicator], 
+    [vwFormulaVPC].[MinMarket_Date] AS [MinMarket_Date], 
+    [vwFormulaVPC].[MinMarket_Value] AS [MinMarket_Value], 
+    [vwFormulaVPC].[High] AS [High], 
+    [vwFormulaVPC].[Medium] AS [Medium], 
+    [vwFormulaVPC].[Low] AS [Low]
+    FROM [dbo].[vwFormulaVPC] AS [vwFormulaVPC]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

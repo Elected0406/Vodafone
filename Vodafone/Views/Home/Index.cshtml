@@ -1,8 +1,11 @@
-﻿﻿@{
+﻿@model  IEnumerable<Vodafone.Models.vwFormulaVPC>
+@{
     ViewData["Title"] = "Home Page";
 }
 <section class="contentblock">
     <div class="container">
+@foreach (var item in Model)
+{
         <div class="whitebackground">
             <div class="col-sm-12">
                 <div class="heading1">
@@ -20,17 +23,9 @@
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="row">
-                                <div class="pb0 col-sm-4">
-                                    <div class="col-sm-12 wbc"><b>30 June 13</b></div>
-                                    <div class="col-sm-12 gbc clear">1</div>
-                                </div>
-                                <div class="pb0 col-sm-4">
-                                    <div class="col-sm-12 wbc"><b>30 Nov 13</b></div>
-                                    <div class="col-sm-12 gbc clear">1</div>
-                                </div>
-                                <div class="pb0 col-sm-4">
-                                    <div class="col-sm-12 wbc"><b>31 Dec 13</b></div>
-                                    <div class="col-sm-12 gbc clear">1</div>
+                                <div class="pb0 col-sm-12">
+                                    <div class="col-sm-12 wbc"><b>@DateTime.Now</b></div>
+                                    <div class="col-sm-12 fb clear"></div>
                                 </div>
                             </div>
                         </div>
@@ -44,35 +39,35 @@
                         <div class="col-sm-12 bbc">High electricity prices using historical volatility</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.Hepuhv</b></div>
+                        <div class="col-sm-12 ybc"><b>@item.High</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 col-md-9 pb0">
                         <div class="col-sm-12 bbc">Medium electricity prices using historical volatility</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.Mepuhv</b></div>
+                        <div class="col-sm-12 ybc"><b>@item.Medium</b>-<b>@item.High</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 col-md-9 pb0">
                         <div class="col-sm-12 bbc">Low electricity prices using historical volatility</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.Lepuhv</b></div>
+                        <div class="col-sm-12 ybc"><b>@item.Low</b>-<b>@item.Medium</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 col-md-9 pb0">
                         <div class="col-sm-12 bbc">Ultra-low electricity prices using historical volatility</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.Ulepuhv</b></div>
+                        <div class="col-sm-12 ybc"><b>@item.Low</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 col-md-9 pb0">
                         <div class="col-sm-12 bbc">Lowest price during reporting period</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.Lpdrp</b></div>
+                        <div class="col-sm-12 ybc"><b>@item.MinMarket_Value</b>-<b>@item.MinMarket_Date</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 bbc col-md-4 pb0">
@@ -83,7 +78,7 @@
                             <div class="col-xs-12 col-sm-12 pb0">High</div>
                         </div>
                         <div class="ybc">
-                            <div class="col-xs-12 col-sm-12 pb0">|</div>
+                            <div class="col-xs-12 col-sm-12 pb0">@item.High</div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2 pb0">
@@ -91,7 +86,7 @@
                             <div class="col-xs-12 col-sm-12 pb0">Medium</div>
                         </div>
                         <div class="ybc">
-                            <div class="col-xs-12 col-sm-12 pb0">|</div>
+                            <div class="col-xs-12 col-sm-12 pb0">@item.Medium</div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2 pb0">
@@ -99,7 +94,7 @@
                             <div class="col-xs-12 col-sm-12 pb0">Low</div>
                         </div>
                         <div class="ybc">
-                            <div class="col-xs-12 col-sm-12 pb0">|</div>
+                            <div class="col-xs-12 col-sm-12 pb0">@item.Low</div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2 pb0">
@@ -107,13 +102,15 @@
                             <div class="col-xs-12 col-sm-12 pb0">Ultra-low</div>
                         </div>
                         <div class="ybc">
-                            <div class="col-xs-12 col-sm-12 pb0">|</div>
+                            <div class="col-xs-12 col-sm-12 pb0">@item.Low</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4"></div>
             </div>
         </div>
+        }@foreach (var item in Model)
+        {
         <div class="container">
             <div class="row whitebackground">
                 <div class="col-sm-12 ">
@@ -128,11 +125,11 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="pb0  col-sm-12 wbc"><b>LW</b></div>
-                            <div class="pb0  col-sm-12 ybc"><b>|</b></div>
+                            <div class="pb0  col-sm-12 ybc"><b>@item.VolumeTotal</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
-                            <div class="pb0  col-sm-12 wbc"><b>MW</b></div>
-                            <div class="pb0  col-sm-12 ybc"><b>|</b></div>
+                            <div class="pb0  col-sm-12 fd"><b></b></div>
+                            <div class="pb0  col-sm-12 fd"><b></b></div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-3 pb0">
                             <div class="pb0 col-sm-12 fd"><b></b></div>
@@ -143,6 +140,8 @@
                 </div>
             </div>
         </div>
+        }@foreach (var item in Model)
+        {
         <div class="container">
             <div class="row whitebackground">
                 <div class="col-sm-12">
@@ -153,26 +152,27 @@
                         <div class="col-sm-12 wbc1"></div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>Price fixed</b></div>
-                            <div class="col-sm-12 ybc"><b>|</b></div>
+                            <div class="col-sm-12 ybc"><b>@item.MaxPriceFixed</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>LW</b></div>
-                            <div class="col-sm-12 ybc"><b>% of FC</b></div>
+                            <div class="col-sm-12 ybc"><b>@item.VolumeFixProcent</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>MW</b></div>
                             <div class="col-sm-12 ybc"><b>% of FC</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
-                            <div class="col-sm-12 wbc"><b>Policy compliant</b></div>
-                            <div class="col-sm-12 ybc"><b>Yes/No</b></div>
+                            <div class="col-sm-12 fb"><b></b></div>
+                            <div class="col-sm-12 fb"><b></b></div>
                         </div>
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
             </div>
         </div>
-
+        }@foreach (var item in Model)
+        {
         <div class="container">
             <div class="row whitebackground">
                 <div class="col-sm-12">
@@ -183,24 +183,25 @@
                         <div class="col-sm-12 wbc1"></div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>Price fixed</b></div>
-                            <div class="col-sm-12 ybc"><b>|</b></div>
+                            <div class="col-sm-12 ybc"><b>@item.MaxPriceFixed</b></div>
                         </div>
-                        <div class="col-sm-6 col-md-3 fd pb0">
-                            <div class="col-sm-12 fd"><b></b></div>
-                            <div class="col-sm-12 fd"><b></b></div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 pb0">
+                            <div class="col-sm-12 wbc"><b>LW</b></div>
+                            <div class="col-sm-12 ybc"><b>@item.VolumeFixProcent</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>MW</b></div>
                             <div class="col-sm-12 ybc"><b>% of FC</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
-                            <div class="col-sm-12 wbc"><b>Policy compliant</b></div>
-                            <div class="col-sm-12 ybc"><b>Yes/No</b></div>
+                            <div class="col-sm-12 fb"><b></b></div>
+                            <div class="col-sm-12 fb"><b></b></div>
                         </div>
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
             </div>
         </div>
+        }
     </div>
 </section>
