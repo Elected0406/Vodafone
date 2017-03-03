@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e5c47826516441c089690cb465b0ad95" Name="Diagram1" ZoomLevel="81">
-        <EntityTypeShape EntityType="EnergyMarketPriceModel.Formula" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnergyMarketPriceModel.vwFormulaVPC" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="b59e13184b454cb58675510256a8683b" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="EnergyMarketPriceTestModel.Formula" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EnergyMarketPriceTestModel.vwFormulaVPC" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

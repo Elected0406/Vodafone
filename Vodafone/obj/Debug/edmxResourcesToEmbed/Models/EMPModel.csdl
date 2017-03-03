@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="EnergyMarketPriceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="EnergyMarketPriceTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EnergyMarketPriceTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Formulae" EntityType="EnergyMarketPriceTestModel.Formula" />
+    <EntitySet Name="vwFormulaVPCs" EntityType="EnergyMarketPriceTestModel.vwFormulaVPC" />
+  </EntityContainer>
   <EntityType Name="Formula">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Year" Type="Int16" />
     <Property Name="Currency" Type="Byte" Nullable="false" />
     <Property Name="Unit" Type="Byte" Nullable="false" />
@@ -65,7 +69,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Formula" Type="Int32" />
-    <Property Name="Year" Type="Int16" />
+    <Property Name="Year" Type="Int32" />
     <Property Name="SumMarket_Value" Type="Double" />
     <Property Name="StdevMarket_Value" Type="Double" />
     <Property Name="AnualMarket_Value" Type="Double" />
@@ -79,8 +83,4 @@
     <Property Name="Medium" Type="Double" />
     <Property Name="Low" Type="Double" />
   </EntityType>
-  <EntityContainer Name="EMPModel" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Formula" EntityType="Self.Formula" />
-    <EntitySet Name="vwFormulaVPC" EntityType="Self.vwFormulaVPC" />
-  </EntityContainer>
 </Schema>

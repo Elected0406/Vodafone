@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="EnergyMarketPriceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="EnergyMarketPriceTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Formula">
     <Key>
       <PropertyRef Name="ID" />
@@ -67,7 +67,7 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="Formula" Type="int" />
-    <Property Name="Year" Type="smallint" />
+    <Property Name="Year" Type="int" />
     <Property Name="SumMarket_Value" Type="float" />
     <Property Name="StdevMarket_Value" Type="float" />
     <Property Name="AnualMarket_Value" Type="float" />
@@ -81,7 +81,7 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
     <Property Name="Medium" Type="float" />
     <Property Name="Low" Type="float" />
   </EntityType>
-  <EntityContainer Name="EnergyMarketPriceModelStoreContainer">
+  <EntityContainer Name="EnergyMarketPriceTestModelStoreContainer">
     <EntitySet Name="Formula" EntityType="Self.Formula" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vwFormulaVPC" EntityType="Self.vwFormulaVPC" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

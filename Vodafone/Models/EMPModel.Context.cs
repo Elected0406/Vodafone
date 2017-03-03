@@ -13,10 +13,10 @@ namespace Vodafone.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EMPModel : DbContext
+    public partial class EnergyMarketPriceTestEntities : DbContext
     {
-        public EMPModel()
-            : base("name=EMPModel")
+        public EnergyMarketPriceTestEntities()
+            : base("name=EnergyMarketPriceTestEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace Vodafone.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Formula> Formula { get; set; }
-        public virtual DbSet<vwFormulaVPC> vwFormulaVPC { get; set; }
+        public virtual DbSet<Formula> Formulae { get; set; }
+        public virtual DbSet<vwFormulaVPC> vwFormulaVPCs { get; set; }
     }
 }

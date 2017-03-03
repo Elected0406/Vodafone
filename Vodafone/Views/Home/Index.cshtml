@@ -1,11 +1,9 @@
-﻿@model  IEnumerable<Vodafone.Models.vwFormulaVPC>
+﻿@model  Vodafone.Models.vwFormulaVPC
 @{
     ViewData["Title"] = "Home Page";
 }
 <section class="contentblock">
     <div class="container">
-@foreach (var item in Model)
-{
         <div class="whitebackground">
             <div class="col-sm-12">
                 <div class="heading1">
@@ -39,35 +37,35 @@
                         <div class="col-sm-12 bbc">High electricity prices using historical volatility</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@item.High</b></div>
+                        <div class="col-sm-12 ybc"><b>@ViewBag.High</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 col-md-9 pb0">
                         <div class="col-sm-12 bbc">Medium electricity prices using historical volatility</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@item.Medium</b>-<b>@item.High</b></div>
+                        <div class="col-sm-12 ybc"><b>@ViewBag.Medium</b>-<b>@ViewBag.High</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 col-md-9 pb0">
                         <div class="col-sm-12 bbc">Low electricity prices using historical volatility</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@item.Low</b>-<b>@item.Medium</b></div>
+                        <div class="col-sm-12 ybc"><b>@ViewBag.Low</b>-<b>@ViewBag.Medium</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 col-md-9 pb0">
                         <div class="col-sm-12 bbc">Ultra-low electricity prices using historical volatility</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@item.Low</b></div>
+                        <div class="col-sm-12 ybc"><b>@ViewBag.Low</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 col-md-9 pb0">
                         <div class="col-sm-12 bbc">Lowest price during reporting period</div>
                     </div>
                     <div class="col-sm-12 col-md-3 pb0">
-                        <div class="col-sm-12 ybc"><b>@item.MinMarket_Value</b>-<b>@item.MinMarket_Date</b></div>
+                        <div class="col-sm-12 ybc"><b>@ViewBag.MinMarket_Value</b>-<b>@ViewBag.MinMarket_Date</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-sm-12 bbc col-md-4 pb0">
@@ -78,7 +76,7 @@
                             <div class="col-xs-12 col-sm-12 pb0">High</div>
                         </div>
                         <div class="ybc">
-                            <div class="col-xs-12 col-sm-12 pb0">@item.High</div>
+                            <div class="col-xs-12 col-sm-12 pb0">@ViewBag.High</div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2 pb0">
@@ -86,7 +84,7 @@
                             <div class="col-xs-12 col-sm-12 pb0">Medium</div>
                         </div>
                         <div class="ybc">
-                            <div class="col-xs-12 col-sm-12 pb0">@item.Medium</div>
+                            <div class="col-xs-12 col-sm-12 pb0">@ViewBag.Medium</div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2 pb0">
@@ -94,7 +92,7 @@
                             <div class="col-xs-12 col-sm-12 pb0">Low</div>
                         </div>
                         <div class="ybc">
-                            <div class="col-xs-12 col-sm-12 pb0">@item.Low</div>
+                            <div class="col-xs-12 col-sm-12 pb0">@ViewBag.Low</div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2 pb0">
@@ -102,15 +100,13 @@
                             <div class="col-xs-12 col-sm-12 pb0">Ultra-low</div>
                         </div>
                         <div class="ybc">
-                            <div class="col-xs-12 col-sm-12 pb0">@item.Low</div>
+                            <div class="col-xs-12 col-sm-12 pb0">@ViewBag.Low</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4"></div>
             </div>
         </div>
-        }@foreach (var item in Model)
-        {
         <div class="container">
             <div class="row whitebackground">
                 <div class="col-sm-12 ">
@@ -125,7 +121,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="pb0  col-sm-12 wbc"><b>LW</b></div>
-                            <div class="pb0  col-sm-12 ybc"><b>@item.VolumeTotal</b></div>
+                            <div class="pb0  col-sm-12 ybc"><b>@ViewBag.VolumeTotal</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="pb0  col-sm-12 fd"><b></b></div>
@@ -140,8 +136,6 @@
                 </div>
             </div>
         </div>
-        }@foreach (var item in Model)
-        {
         <div class="container">
             <div class="row whitebackground">
                 <div class="col-sm-12">
@@ -152,11 +146,11 @@
                         <div class="col-sm-12 wbc1"></div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>Price fixed</b></div>
-                            <div class="col-sm-12 ybc"><b>@item.MaxPriceFixed</b></div>
+                            <div class="col-sm-12 ybc"><b>@ViewBag.MaxPriceFixed</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>LW</b></div>
-                            <div class="col-sm-12 ybc"><b>@item.VolumeFixProcent</b></div>
+                            <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>MW</b></div>
@@ -171,8 +165,6 @@
                 </div>
             </div>
         </div>
-        }@foreach (var item in Model)
-        {
         <div class="container">
             <div class="row whitebackground">
                 <div class="col-sm-12">
@@ -183,11 +175,11 @@
                         <div class="col-sm-12 wbc1"></div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>Price fixed</b></div>
-                            <div class="col-sm-12 ybc"><b>@item.MaxPriceFixed</b></div>
+                            <div class="col-sm-12 ybc"><b>@ViewBag.MaxPriceFixed2</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>LW</b></div>
-                            <div class="col-sm-12 ybc"><b>@item.VolumeFixProcent</b></div>
+                            <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent2</b></div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 pb0">
                             <div class="col-sm-12 wbc"><b>MW</b></div>
@@ -202,6 +194,5 @@
                 </div>
             </div>
         </div>
-        }
     </div>
 </section>

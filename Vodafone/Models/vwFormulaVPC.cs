@@ -16,7 +16,7 @@ namespace Vodafone.Models
     {
         public int ID { get; set; }
         public Nullable<int> Formula { get; set; }
-        public Nullable<short> Year { get; set; }
+        public Nullable<int> Year { get; set; }
         public Nullable<double> SumMarket_Value { get; set; }
         public Nullable<double> StdevMarket_Value { get; set; }
         public Nullable<double> AnualMarket_Value { get; set; }

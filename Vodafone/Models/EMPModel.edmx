@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EnergyMarketPriceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EnergyMarketPriceTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Formula">
           <Key>
             <PropertyRef Name="ID" />
@@ -72,7 +72,7 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Formula" Type="int" />
-          <Property Name="Year" Type="smallint" />
+          <Property Name="Year" Type="int" />
           <Property Name="SumMarket_Value" Type="float" />
           <Property Name="StdevMarket_Value" Type="float" />
           <Property Name="AnualMarket_Value" Type="float" />
@@ -86,7 +86,7 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
           <Property Name="Medium" Type="float" />
           <Property Name="Low" Type="float" />
         </EntityType>
-        <EntityContainer Name="EnergyMarketPriceModelStoreContainer">
+        <EntityContainer Name="EnergyMarketPriceTestModelStoreContainer">
           <EntitySet Name="Formula" EntityType="Self.Formula" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vwFormulaVPC" EntityType="Self.vwFormulaVPC" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -108,17 +108,20 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
     FROM [dbo].[vwFormulaVPC] AS [vwFormulaVPC]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EnergyMarketPriceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EnergyMarketPriceTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EnergyMarketPriceTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Formulae" EntityType="EnergyMarketPriceTestModel.Formula" />
+          <EntitySet Name="vwFormulaVPCs" EntityType="EnergyMarketPriceTestModel.vwFormulaVPC" />
+        </EntityContainer>
         <EntityType Name="Formula">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Year" Type="Int16" />
           <Property Name="Currency" Type="Byte" Nullable="false" />
           <Property Name="Unit" Type="Byte" Nullable="false" />
@@ -178,7 +181,7 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Formula" Type="Int32" />
-          <Property Name="Year" Type="Int16" />
+          <Property Name="Year" Type="Int32" />
           <Property Name="SumMarket_Value" Type="Double" />
           <Property Name="StdevMarket_Value" Type="Double" />
           <Property Name="AnualMarket_Value" Type="Double" />
@@ -192,94 +195,90 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
           <Property Name="Medium" Type="Double" />
           <Property Name="Low" Type="Double" />
         </EntityType>
-        <EntityContainer Name="EMPModel" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Formula" EntityType="Self.Formula" />
-          <EntitySet Name="vwFormulaVPC" EntityType="Self.vwFormulaVPC" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EnergyMarketPriceModelStoreContainer" CdmEntityContainer="EMPModel">
-          <EntitySetMapping Name="Formula">
-            <EntityTypeMapping TypeName="EnergyMarketPriceModel.Formula">
+        <EntityContainerMapping StorageEntityContainer="EnergyMarketPriceTestModelStoreContainer" CdmEntityContainer="EnergyMarketPriceTestEntities">
+          <EntitySetMapping Name="Formulae">
+            <EntityTypeMapping TypeName="EnergyMarketPriceTestModel.Formula">
               <MappingFragment StoreEntitySet="Formula">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="Create" ColumnName="Create" />
-                <ScalarProperty Name="Period" ColumnName="Period" />
-                <ScalarProperty Name="Market_ID" ColumnName="Market_ID" />
-                <ScalarProperty Name="YearFrom" ColumnName="YearFrom" />
-                <ScalarProperty Name="CalendarFrom" ColumnName="CalendarFrom" />
-                <ScalarProperty Name="YearTo" ColumnName="YearTo" />
-                <ScalarProperty Name="CalendarTo" ColumnName="CalendarTo" />
-                <ScalarProperty Name="Flex" ColumnName="Flex" />
-                <ScalarProperty Name="ScoreEMP" ColumnName="ScoreEMP" />
-                <ScalarProperty Name="ScoreSpot" ColumnName="ScoreSpot" />
-                <ScalarProperty Name="ScoreAVGMP" ColumnName="ScoreAVGMP" />
-                <ScalarProperty Name="ScoreCostom" ColumnName="ScoreCostom" />
-                <ScalarProperty Name="PerfectScoreValue" ColumnName="PerfectScoreValue" />
-                <ScalarProperty Name="LockUnlock" ColumnName="LockUnlock" />
-                <ScalarProperty Name="FixMinM" ColumnName="FixMinM" />
-                <ScalarProperty Name="FixMinQ" ColumnName="FixMinQ" />
-                <ScalarProperty Name="FixMinY" ColumnName="FixMinY" />
-                <ScalarProperty Name="TrancheLock" ColumnName="TrancheLock" />
-                <ScalarProperty Name="TrancheUnLockM" ColumnName="TrancheUnLockM" />
-                <ScalarProperty Name="TrancheUnLockQ" ColumnName="TrancheUnLockQ" />
-                <ScalarProperty Name="TrancheUnLockY" ColumnName="TrancheUnLockY" />
-                <ScalarProperty Name="TrancheLockFrom" ColumnName="TrancheLockFrom" />
-                <ScalarProperty Name="TrancheLockTo" ColumnName="TrancheLockTo" />
-                <ScalarProperty Name="TrancheUnLockFromM" ColumnName="TrancheUnLockFromM" />
-                <ScalarProperty Name="TrancheUnLockToM" ColumnName="TrancheUnLockToM" />
-                <ScalarProperty Name="TrancheUnLockFromQ" ColumnName="TrancheUnLockFromQ" />
-                <ScalarProperty Name="TrancheUnLockToQ" ColumnName="TrancheUnLockToQ" />
-                <ScalarProperty Name="TrancheUnLockFromY" ColumnName="TrancheUnLockFromY" />
-                <ScalarProperty Name="TrancheUnLockToY" ColumnName="TrancheUnLockToY" />
-                <ScalarProperty Name="AutoLockPriceKR" ColumnName="AutoLockPriceKR" />
-                <ScalarProperty Name="AutoLockPriceNOK" ColumnName="AutoLockPriceNOK" />
-                <ScalarProperty Name="AutoLockPriceLTEDF" ColumnName="AutoLockPriceLTEDF" />
-                <ScalarProperty Name="CertPeriod" ColumnName="CertPeriod" />
-                <ScalarProperty Name="CertTranche" ColumnName="CertTranche" />
-                <ScalarProperty Name="CertMin" ColumnName="CertMin" />
-                <ScalarProperty Name="CertMax" ColumnName="CertMax" />
-                <ScalarProperty Name="CertFixSession" ColumnName="CertFixSession" />
-                <ScalarProperty Name="FixMonth" ColumnName="FixMonth" />
-                <ScalarProperty Name="FixQuarter" ColumnName="FixQuarter" />
-                <ScalarProperty Name="FixYear" ColumnName="FixYear" />
-                <ScalarProperty Name="FixSession" ColumnName="FixSession" />
-                <ScalarProperty Name="BestPrice" ColumnName="BestPrice" />
-                <ScalarProperty Name="HourToFix" ColumnName="HourToFix" />
-                <ScalarProperty Name="HourToFixCert" ColumnName="HourToFixCert" />
-                <ScalarProperty Name="History" ColumnName="History" />
-                <ScalarProperty Name="NoFriday" ColumnName="NoFriday" />
-                <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
-                <ScalarProperty Name="TGEIndex" ColumnName="TGEIndex" />
                 <ScalarProperty Name="HourToTGEIndex" ColumnName="HourToTGEIndex" />
+                <ScalarProperty Name="TGEIndex" ColumnName="TGEIndex" />
+                <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+                <ScalarProperty Name="NoFriday" ColumnName="NoFriday" />
+                <ScalarProperty Name="History" ColumnName="History" />
+                <ScalarProperty Name="HourToFixCert" ColumnName="HourToFixCert" />
+                <ScalarProperty Name="HourToFix" ColumnName="HourToFix" />
+                <ScalarProperty Name="BestPrice" ColumnName="BestPrice" />
+                <ScalarProperty Name="FixSession" ColumnName="FixSession" />
+                <ScalarProperty Name="FixYear" ColumnName="FixYear" />
+                <ScalarProperty Name="FixQuarter" ColumnName="FixQuarter" />
+                <ScalarProperty Name="FixMonth" ColumnName="FixMonth" />
+                <ScalarProperty Name="CertFixSession" ColumnName="CertFixSession" />
+                <ScalarProperty Name="CertMax" ColumnName="CertMax" />
+                <ScalarProperty Name="CertMin" ColumnName="CertMin" />
+                <ScalarProperty Name="CertTranche" ColumnName="CertTranche" />
+                <ScalarProperty Name="CertPeriod" ColumnName="CertPeriod" />
+                <ScalarProperty Name="AutoLockPriceLTEDF" ColumnName="AutoLockPriceLTEDF" />
+                <ScalarProperty Name="AutoLockPriceNOK" ColumnName="AutoLockPriceNOK" />
+                <ScalarProperty Name="AutoLockPriceKR" ColumnName="AutoLockPriceKR" />
+                <ScalarProperty Name="TrancheUnLockToY" ColumnName="TrancheUnLockToY" />
+                <ScalarProperty Name="TrancheUnLockFromY" ColumnName="TrancheUnLockFromY" />
+                <ScalarProperty Name="TrancheUnLockToQ" ColumnName="TrancheUnLockToQ" />
+                <ScalarProperty Name="TrancheUnLockFromQ" ColumnName="TrancheUnLockFromQ" />
+                <ScalarProperty Name="TrancheUnLockToM" ColumnName="TrancheUnLockToM" />
+                <ScalarProperty Name="TrancheUnLockFromM" ColumnName="TrancheUnLockFromM" />
+                <ScalarProperty Name="TrancheLockTo" ColumnName="TrancheLockTo" />
+                <ScalarProperty Name="TrancheLockFrom" ColumnName="TrancheLockFrom" />
+                <ScalarProperty Name="TrancheUnLockY" ColumnName="TrancheUnLockY" />
+                <ScalarProperty Name="TrancheUnLockQ" ColumnName="TrancheUnLockQ" />
+                <ScalarProperty Name="TrancheUnLockM" ColumnName="TrancheUnLockM" />
+                <ScalarProperty Name="TrancheLock" ColumnName="TrancheLock" />
+                <ScalarProperty Name="FixMinY" ColumnName="FixMinY" />
+                <ScalarProperty Name="FixMinQ" ColumnName="FixMinQ" />
+                <ScalarProperty Name="FixMinM" ColumnName="FixMinM" />
+                <ScalarProperty Name="LockUnlock" ColumnName="LockUnlock" />
+                <ScalarProperty Name="PerfectScoreValue" ColumnName="PerfectScoreValue" />
+                <ScalarProperty Name="ScoreCostom" ColumnName="ScoreCostom" />
+                <ScalarProperty Name="ScoreAVGMP" ColumnName="ScoreAVGMP" />
+                <ScalarProperty Name="ScoreSpot" ColumnName="ScoreSpot" />
+                <ScalarProperty Name="ScoreEMP" ColumnName="ScoreEMP" />
+                <ScalarProperty Name="Flex" ColumnName="Flex" />
+                <ScalarProperty Name="CalendarTo" ColumnName="CalendarTo" />
+                <ScalarProperty Name="YearTo" ColumnName="YearTo" />
+                <ScalarProperty Name="CalendarFrom" ColumnName="CalendarFrom" />
+                <ScalarProperty Name="YearFrom" ColumnName="YearFrom" />
+                <ScalarProperty Name="Market_ID" ColumnName="Market_ID" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Create" ColumnName="Create" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwFormulaVPC">
-            <EntityTypeMapping TypeName="EnergyMarketPriceModel.vwFormulaVPC">
+          <EntitySetMapping Name="vwFormulaVPCs">
+            <EntityTypeMapping TypeName="EnergyMarketPriceTestModel.vwFormulaVPC">
               <MappingFragment StoreEntitySet="vwFormulaVPC">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Formula" ColumnName="Formula" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="SumMarket_Value" ColumnName="SumMarket_Value" />
-                <ScalarProperty Name="StdevMarket_Value" ColumnName="StdevMarket_Value" />
-                <ScalarProperty Name="AnualMarket_Value" ColumnName="AnualMarket_Value" />
-                <ScalarProperty Name="MaxPriceFixed" ColumnName="MaxPriceFixed" />
-                <ScalarProperty Name="VolumeFixProcent" ColumnName="VolumeFixProcent" />
-                <ScalarProperty Name="VolumeTotal" ColumnName="VolumeTotal" />
-                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
-                <ScalarProperty Name="MinMarket_Date" ColumnName="MinMarket_Date" />
-                <ScalarProperty Name="MinMarket_Value" ColumnName="MinMarket_Value" />
-                <ScalarProperty Name="High" ColumnName="High" />
-                <ScalarProperty Name="Medium" ColumnName="Medium" />
                 <ScalarProperty Name="Low" ColumnName="Low" />
+                <ScalarProperty Name="Medium" ColumnName="Medium" />
+                <ScalarProperty Name="High" ColumnName="High" />
+                <ScalarProperty Name="MinMarket_Value" ColumnName="MinMarket_Value" />
+                <ScalarProperty Name="MinMarket_Date" ColumnName="MinMarket_Date" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="VolumeTotal" ColumnName="VolumeTotal" />
+                <ScalarProperty Name="VolumeFixProcent" ColumnName="VolumeFixProcent" />
+                <ScalarProperty Name="MaxPriceFixed" ColumnName="MaxPriceFixed" />
+                <ScalarProperty Name="AnualMarket_Value" ColumnName="AnualMarket_Value" />
+                <ScalarProperty Name="StdevMarket_Value" ColumnName="StdevMarket_Value" />
+                <ScalarProperty Name="SumMarket_Value" ColumnName="SumMarket_Value" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Formula" ColumnName="Formula" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -297,7 +296,7 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
