@@ -61,26 +61,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vwFormulaVPCs">
-      <EntityTypeMapping TypeName="EnergyMarketPriceTestModel.vwFormulaVPC">
-        <MappingFragment StoreEntitySet="vwFormulaVPC">
-          <ScalarProperty Name="Low" ColumnName="Low" />
-          <ScalarProperty Name="Medium" ColumnName="Medium" />
-          <ScalarProperty Name="High" ColumnName="High" />
-          <ScalarProperty Name="MinMarket_Value" ColumnName="MinMarket_Value" />
-          <ScalarProperty Name="MinMarket_Date" ColumnName="MinMarket_Date" />
-          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
-          <ScalarProperty Name="VolumeTotal" ColumnName="VolumeTotal" />
-          <ScalarProperty Name="VolumeFixProcent" ColumnName="VolumeFixProcent" />
-          <ScalarProperty Name="MaxPriceFixed" ColumnName="MaxPriceFixed" />
-          <ScalarProperty Name="AnualMarket_Value" ColumnName="AnualMarket_Value" />
-          <ScalarProperty Name="StdevMarket_Value" ColumnName="StdevMarket_Value" />
-          <ScalarProperty Name="SumMarket_Value" ColumnName="SumMarket_Value" />
-          <ScalarProperty Name="Year" ColumnName="Year" />
-          <ScalarProperty Name="Formula" ColumnName="Formula" />
+    <FunctionImportMapping FunctionImportName="fnFormulaVPC" FunctionName="EnergyMarketPriceTestModel.Store.fnFormulaVPC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EnergyMarketPriceTestModel.fnFormulaVPC_Result">
           <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+          <ScalarProperty Name="Formula" ColumnName="Formula" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="SumMarket_Value" ColumnName="SumMarket_Value" />
+          <ScalarProperty Name="StdevMarket_Value" ColumnName="StdevMarket_Value" />
+          <ScalarProperty Name="AnualMarket_Value" ColumnName="AnualMarket_Value" />
+          <ScalarProperty Name="MaxPriceFixed" ColumnName="MaxPriceFixed" />
+          <ScalarProperty Name="VolumeFixProcent" ColumnName="VolumeFixProcent" />
+          <ScalarProperty Name="VolumeTotal" ColumnName="VolumeTotal" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="MinMarket_Date" ColumnName="MinMarket_Date" />
+          <ScalarProperty Name="MinMarket_Value" ColumnName="MinMarket_Value" />
+          <ScalarProperty Name="High" ColumnName="High" />
+          <ScalarProperty Name="Medium" ColumnName="Medium" />
+          <ScalarProperty Name="Low" ColumnName="Low" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

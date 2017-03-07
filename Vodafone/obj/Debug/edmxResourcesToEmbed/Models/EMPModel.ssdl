@@ -59,48 +59,31 @@
     <Property Name="TGEIndex" Type="bit" />
     <Property Name="HourToTGEIndex" Type="time" Precision="0" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwFormulaVPC">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="Formula" Type="int" />
-    <Property Name="Year" Type="int" />
-    <Property Name="SumMarket_Value" Type="float" />
-    <Property Name="StdevMarket_Value" Type="float" />
-    <Property Name="AnualMarket_Value" Type="float" />
-    <Property Name="MaxPriceFixed" Type="float" />
-    <Property Name="VolumeFixProcent" Type="decimal" Precision="38" Scale="6" />
-    <Property Name="VolumeTotal" Type="money" />
-    <Property Name="Indicator" Type="varchar" MaxLength="8" />
-    <Property Name="MinMarket_Date" Type="smalldatetime" />
-    <Property Name="MinMarket_Value" Type="float" />
-    <Property Name="High" Type="float" />
-    <Property Name="Medium" Type="float" />
-    <Property Name="Low" Type="float" />
-  </EntityType>
+  <Function Name="fnFormulaVPC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Formula" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Formula" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="SumMarket_Value" Type="float" />
+          <Property Name="StdevMarket_Value" Type="float" />
+          <Property Name="AnualMarket_Value" Type="float" />
+          <Property Name="MaxPriceFixed" Type="float" />
+          <Property Name="VolumeFixProcent" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="VolumeTotal" Type="money" />
+          <Property Name="Indicator" Type="varchar" MaxLength="8" />
+          <Property Name="MinMarket_Date" Type="smalldatetime" />
+          <Property Name="MinMarket_Value" Type="float" />
+          <Property Name="High" Type="float" />
+          <Property Name="Medium" Type="float" />
+          <Property Name="Low" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
   <EntityContainer Name="EnergyMarketPriceTestModelStoreContainer">
     <EntitySet Name="Formula" EntityType="Self.Formula" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="vwFormulaVPC" EntityType="Self.vwFormulaVPC" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [vwFormulaVPC].[ID] AS [ID], 
-    [vwFormulaVPC].[Formula] AS [Formula], 
-    [vwFormulaVPC].[Year] AS [Year], 
-    [vwFormulaVPC].[SumMarket_Value] AS [SumMarket_Value], 
-    [vwFormulaVPC].[StdevMarket_Value] AS [StdevMarket_Value], 
-    [vwFormulaVPC].[AnualMarket_Value] AS [AnualMarket_Value], 
-    [vwFormulaVPC].[MaxPriceFixed] AS [MaxPriceFixed], 
-    [vwFormulaVPC].[VolumeFixProcent] AS [VolumeFixProcent], 
-    [vwFormulaVPC].[VolumeTotal] AS [VolumeTotal], 
-    [vwFormulaVPC].[Indicator] AS [Indicator], 
-    [vwFormulaVPC].[MinMarket_Date] AS [MinMarket_Date], 
-    [vwFormulaVPC].[MinMarket_Value] AS [MinMarket_Value], 
-    [vwFormulaVPC].[High] AS [High], 
-    [vwFormulaVPC].[Medium] AS [Medium], 
-    [vwFormulaVPC].[Low] AS [Low]
-    FROM [dbo].[vwFormulaVPC] AS [vwFormulaVPC]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>

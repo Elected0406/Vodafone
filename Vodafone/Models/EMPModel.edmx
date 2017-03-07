@@ -64,49 +64,32 @@
           <Property Name="TGEIndex" Type="bit" />
           <Property Name="HourToTGEIndex" Type="time" Precision="0" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="vwFormulaVPC">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Formula" Type="int" />
-          <Property Name="Year" Type="int" />
-          <Property Name="SumMarket_Value" Type="float" />
-          <Property Name="StdevMarket_Value" Type="float" />
-          <Property Name="AnualMarket_Value" Type="float" />
-          <Property Name="MaxPriceFixed" Type="float" />
-          <Property Name="VolumeFixProcent" Type="decimal" Precision="38" Scale="6" />
-          <Property Name="VolumeTotal" Type="money" />
-          <Property Name="Indicator" Type="varchar" MaxLength="8" />
-          <Property Name="MinMarket_Date" Type="smalldatetime" />
-          <Property Name="MinMarket_Value" Type="float" />
-          <Property Name="High" Type="float" />
-          <Property Name="Medium" Type="float" />
-          <Property Name="Low" Type="float" />
-        </EntityType>
+        <Function Name="fnFormulaVPC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Formula" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ID" Type="int" Nullable="false" />
+                <Property Name="Formula" Type="int" />
+                <Property Name="Year" Type="int" />
+                <Property Name="SumMarket_Value" Type="float" />
+                <Property Name="StdevMarket_Value" Type="float" />
+                <Property Name="AnualMarket_Value" Type="float" />
+                <Property Name="MaxPriceFixed" Type="float" />
+                <Property Name="VolumeFixProcent" Type="decimal" Precision="38" Scale="6" />
+                <Property Name="VolumeTotal" Type="money" />
+                <Property Name="Indicator" Type="varchar" MaxLength="8" />
+                <Property Name="MinMarket_Date" Type="smalldatetime" />
+                <Property Name="MinMarket_Value" Type="float" />
+                <Property Name="High" Type="float" />
+                <Property Name="Medium" Type="float" />
+                <Property Name="Low" Type="float" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <EntityContainer Name="EnergyMarketPriceTestModelStoreContainer">
           <EntitySet Name="Formula" EntityType="Self.Formula" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="vwFormulaVPC" EntityType="Self.vwFormulaVPC" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [vwFormulaVPC].[ID] AS [ID], 
-    [vwFormulaVPC].[Formula] AS [Formula], 
-    [vwFormulaVPC].[Year] AS [Year], 
-    [vwFormulaVPC].[SumMarket_Value] AS [SumMarket_Value], 
-    [vwFormulaVPC].[StdevMarket_Value] AS [StdevMarket_Value], 
-    [vwFormulaVPC].[AnualMarket_Value] AS [AnualMarket_Value], 
-    [vwFormulaVPC].[MaxPriceFixed] AS [MaxPriceFixed], 
-    [vwFormulaVPC].[VolumeFixProcent] AS [VolumeFixProcent], 
-    [vwFormulaVPC].[VolumeTotal] AS [VolumeTotal], 
-    [vwFormulaVPC].[Indicator] AS [Indicator], 
-    [vwFormulaVPC].[MinMarket_Date] AS [MinMarket_Date], 
-    [vwFormulaVPC].[MinMarket_Value] AS [MinMarket_Value], 
-    [vwFormulaVPC].[High] AS [High], 
-    [vwFormulaVPC].[Medium] AS [Medium], 
-    [vwFormulaVPC].[Low] AS [Low]
-    FROM [dbo].[vwFormulaVPC] AS [vwFormulaVPC]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -114,7 +97,9 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
       <Schema Namespace="EnergyMarketPriceTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="EnergyMarketPriceTestEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Formulae" EntityType="EnergyMarketPriceTestModel.Formula" />
-          <EntitySet Name="vwFormulaVPCs" EntityType="EnergyMarketPriceTestModel.vwFormulaVPC" />
+          <FunctionImport Name="fnFormulaVPC" IsComposable="true" ReturnType="Collection(EnergyMarketPriceTestModel.fnFormulaVPC_Result)">
+            <Parameter Name="Formula" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Formula">
           <Key>
@@ -175,26 +160,23 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
           <Property Name="TGEIndex" Type="Boolean" />
           <Property Name="HourToTGEIndex" Type="Time" Precision="0" />
         </EntityType>
-        <EntityType Name="vwFormulaVPC">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Formula" Type="Int32" />
-          <Property Name="Year" Type="Int32" />
-          <Property Name="SumMarket_Value" Type="Double" />
-          <Property Name="StdevMarket_Value" Type="Double" />
-          <Property Name="AnualMarket_Value" Type="Double" />
-          <Property Name="MaxPriceFixed" Type="Double" />
-          <Property Name="VolumeFixProcent" Type="Decimal" Precision="38" Scale="6" />
-          <Property Name="VolumeTotal" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Indicator" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="MinMarket_Date" Type="DateTime" Precision="0" />
-          <Property Name="MinMarket_Value" Type="Double" />
-          <Property Name="High" Type="Double" />
-          <Property Name="Medium" Type="Double" />
-          <Property Name="Low" Type="Double" />
-        </EntityType>
+        <ComplexType Name="fnFormulaVPC_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="Formula" Nullable="true" />
+          <Property Type="Int32" Name="Year" Nullable="true" />
+          <Property Type="Double" Name="SumMarket_Value" Nullable="true" />
+          <Property Type="Double" Name="StdevMarket_Value" Nullable="true" />
+          <Property Type="Double" Name="AnualMarket_Value" Nullable="true" />
+          <Property Type="Double" Name="MaxPriceFixed" Nullable="true" />
+          <Property Type="Decimal" Name="VolumeFixProcent" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="VolumeTotal" Nullable="true" Precision="19" Scale="4" />
+          <Property Type="String" Name="Indicator" Nullable="true" MaxLength="8" />
+          <Property Type="DateTime" Name="MinMarket_Date" Nullable="true" Precision="16" />
+          <Property Type="Double" Name="MinMarket_Value" Nullable="true" />
+          <Property Type="Double" Name="High" Nullable="true" />
+          <Property Type="Double" Name="Medium" Nullable="true" />
+          <Property Type="Double" Name="Low" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -261,27 +243,27 @@ warning 6002: The table/view 'EnergyMarketPriceTest.dbo.vwFormulaVPC' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwFormulaVPCs">
-            <EntityTypeMapping TypeName="EnergyMarketPriceTestModel.vwFormulaVPC">
-              <MappingFragment StoreEntitySet="vwFormulaVPC">
-                <ScalarProperty Name="Low" ColumnName="Low" />
-                <ScalarProperty Name="Medium" ColumnName="Medium" />
-                <ScalarProperty Name="High" ColumnName="High" />
-                <ScalarProperty Name="MinMarket_Value" ColumnName="MinMarket_Value" />
-                <ScalarProperty Name="MinMarket_Date" ColumnName="MinMarket_Date" />
-                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
-                <ScalarProperty Name="VolumeTotal" ColumnName="VolumeTotal" />
-                <ScalarProperty Name="VolumeFixProcent" ColumnName="VolumeFixProcent" />
-                <ScalarProperty Name="MaxPriceFixed" ColumnName="MaxPriceFixed" />
-                <ScalarProperty Name="AnualMarket_Value" ColumnName="AnualMarket_Value" />
-                <ScalarProperty Name="StdevMarket_Value" ColumnName="StdevMarket_Value" />
-                <ScalarProperty Name="SumMarket_Value" ColumnName="SumMarket_Value" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Formula" ColumnName="Formula" />
+          <FunctionImportMapping FunctionImportName="fnFormulaVPC" FunctionName="EnergyMarketPriceTestModel.Store.fnFormulaVPC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnergyMarketPriceTestModel.fnFormulaVPC_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+                <ScalarProperty Name="Formula" ColumnName="Formula" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="SumMarket_Value" ColumnName="SumMarket_Value" />
+                <ScalarProperty Name="StdevMarket_Value" ColumnName="StdevMarket_Value" />
+                <ScalarProperty Name="AnualMarket_Value" ColumnName="AnualMarket_Value" />
+                <ScalarProperty Name="MaxPriceFixed" ColumnName="MaxPriceFixed" />
+                <ScalarProperty Name="VolumeFixProcent" ColumnName="VolumeFixProcent" />
+                <ScalarProperty Name="VolumeTotal" ColumnName="VolumeTotal" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="MinMarket_Date" ColumnName="MinMarket_Date" />
+                <ScalarProperty Name="MinMarket_Value" ColumnName="MinMarket_Value" />
+                <ScalarProperty Name="High" ColumnName="High" />
+                <ScalarProperty Name="Medium" ColumnName="Medium" />
+                <ScalarProperty Name="Low" ColumnName="Low" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

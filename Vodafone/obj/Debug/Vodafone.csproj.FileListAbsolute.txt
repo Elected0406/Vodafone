@@ -80,3 +80,7 @@ D:\Projects\Vodafone\Vodafone\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Projects\Vodafone\Vodafone\obj\Debug\Vodafone.dll
 D:\Projects\Vodafone\Vodafone\obj\Debug\Vodafone.pdb
 D:\Projects\Vodafone\Vodafone\obj\Debug\Vodafone.csprojResolveAssemblyReference.cache
+D:\Projects\Vodafone\Vodafone\bin\itextsharp.dll
+D:\Projects\Vodafone\Vodafone\bin\Rotativa.Core.dll
+D:\Projects\Vodafone\Vodafone\bin\Rotativa.MVC.dll
+D:\Projects\Vodafone\Vodafone\bin\itextsharp.xml

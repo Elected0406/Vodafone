@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b59e13184b454cb58675510256a8683b" Name="Diagram1" ZoomLevel="71">
         <EntityTypeShape EntityType="EnergyMarketPriceTestModel.Formula" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EnergyMarketPriceTestModel.vwFormulaVPC" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,6 +12,8 @@ namespace Vodafone.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class EnergyMarketPriceTestEntities : DbContext
     {
@@ -26,6 +28,15 @@ namespace Vodafone.Models
         }
     
         public virtual DbSet<Formula> Formulae { get; set; }
-        public virtual DbSet<vwFormulaVPC> vwFormulaVPCs { get; set; }
+    
+        [DbFunction("EnergyMarketPriceTestEntities", "fnFormulaVPC")]
+        public virtual IQueryable<fnFormulaVPC_Result> fnFormulaVPC(Nullable<int> formula)
+        {
+            var formulaParameter = formula.HasValue ?
+                new ObjectParameter("Formula", formula) :
+                new ObjectParameter("Formula", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnFormulaVPC_Result>("[EnergyMarketPriceTestEntities].[fnFormulaVPC](@Formula)", formulaParameter);
+        }
     }
 }
