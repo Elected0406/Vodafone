@@ -184,3 +184,13 @@ z-index: 2;
         padding-left:60px;
     }
 }
+.add_comment {
+display: block;
+transform: rotate(270deg);
+padding: 3px 3px 0px 3px;
+position: fixed;
+left: -60px;
+top: 30%;
+z-index: 99999;
+border-top: 10px solid #ff9900;
+}

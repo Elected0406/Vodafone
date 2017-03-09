@@ -21,13 +21,19 @@ namespace Vodafone.Controllers
         {
             //var keyid = db.Formulae.Where(p => p.PublicKey = keyfromlink).ToList().First().ID;
             var formulaid = 2357;
+            //var formulaid = 562;
             ViewBag.High = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).ToList().First().High;
             ViewBag.Medium = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).ToList().First().Medium;
             ViewBag.Low = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).ToList().First().Low;
             ViewBag.MinMarket_Value = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).ToList().First().MinMarket_Value;
             ViewBag.MinMarket_Date = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).ToList().First().MinMarket_Date;
             ViewBag.VolumeTotal = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).ToList().First().VolumeTotal;
-            ViewBag.List = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).Skip(1).Take(2).ToList();
+            ViewBag.MaxPriceFixed = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).Take(1).First().MaxPriceFixed;
+            ViewBag.MaxPriceFixed1 = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).Skip(1).Take(1).First().MaxPriceFixed;
+            ViewBag.MaxPriceFixed2 = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).Skip(2).Take(1).First().MaxPriceFixed;
+            ViewBag.VolumeFixProcent = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).Take(1).First().VolumeFixProcent;
+            ViewBag.VolumeFixProcent1 = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).Skip(1).Take(1).First().VolumeFixProcent;
+            ViewBag.VolumeFixProcent2 = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year).Skip(2).Take(1).First().VolumeFixProcent;
             return View();
         }
         public ActionResult About()
