@@ -159,12 +159,22 @@ z-index: 2;
     left: 10px;
     text-align: center
 }
-@media screen and (max-width:767px) {
+@media screen and (max-width:576px) {
     .fd {
         display: none;
     }
 }
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
+    .fd {
+        display: none;
+    }
+}
+@media screen and (max-width:992px) {
+    .fd {
+        display: none;
+    }
+}
+@media screen and (max-width:576px) {
     .fb {
         padding:0;
     }
@@ -173,6 +183,13 @@ z-index: 2;
     .fb {
         padding: 0px 5px 0px 0px
     }
+
+}
+@media screen and (min-width:992px) {
+    .fb {
+        padding: 0px 5px 0px 0px
+    }
+
 }
 @media screen and (min-width:768px) {
     .fi {
