@@ -15,10 +15,10 @@ namespace Vodafone.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class EnergyMarketPriceTestEntities : DbContext
+    public partial class EnergyMarketPriceTestEntities2 : DbContext
     {
-        public EnergyMarketPriceTestEntities()
-            : base("name=EnergyMarketPriceTestEntities")
+        public EnergyMarketPriceTestEntities2()
+            : base("name=EnergyMarketPriceTestEntities2")
         {
         }
     
@@ -27,16 +27,25 @@ namespace Vodafone.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Formula> Formulae { get; set; }
     
-        [DbFunction("EnergyMarketPriceTestEntities", "fnFormulaVPC")]
+        [DbFunction("EnergyMarketPriceTestEntities2", "fnFormulaByKey")]
+        public virtual IQueryable<fnFormulaByKey_Result> fnFormulaByKey(string key)
+        {
+            var keyParameter = key != null ?
+                new ObjectParameter("Key", key) :
+                new ObjectParameter("Key", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnFormulaByKey_Result>("[EnergyMarketPriceTestEntities2].[fnFormulaByKey](@Key)", keyParameter);
+        }
+    
+        [DbFunction("EnergyMarketPriceTestEntities2", "fnFormulaVPC")]
         public virtual IQueryable<fnFormulaVPC_Result> fnFormulaVPC(Nullable<int> formula)
         {
             var formulaParameter = formula.HasValue ?
                 new ObjectParameter("Formula", formula) :
                 new ObjectParameter("Formula", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnFormulaVPC_Result>("[EnergyMarketPriceTestEntities].[fnFormulaVPC](@Formula)", formulaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnFormulaVPC_Result>("[EnergyMarketPriceTestEntities2].[fnFormulaVPC](@Formula)", formulaParameter);
         }
     }
 }

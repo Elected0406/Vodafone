@@ -1,21 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EnergyMarketPriceTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="EnergyMarketPriceTestEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Formulae" EntityType="EnergyMarketPriceTestModel.Formula" />
-    <FunctionImport Name="fnFormulaVPC" IsComposable="true" ReturnType="Collection(EnergyMarketPriceTestModel.fnFormulaVPC_Result)">
-      <Parameter Name="Formula" Mode="In" Type="Int32" />
-    </FunctionImport>
-  </EntityContainer>
-  <EntityType Name="Formula">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  <ComplexType Name="fnFormulaByKey_Result">
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Year" Type="Int16" />
     <Property Name="Currency" Type="Byte" Nullable="false" />
     <Property Name="Unit" Type="Byte" Nullable="false" />
-    <Property Name="Create" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Create" Type="DateTime" Nullable="false" />
     <Property Name="Period" Type="Byte" Nullable="false" />
     <Property Name="Market_ID" Type="Int32" Nullable="false" />
     <Property Name="YearFrom" Type="Int16" Nullable="false" />
@@ -57,29 +48,39 @@
     <Property Name="FixYear" Type="Boolean" />
     <Property Name="FixSession" Type="Byte" />
     <Property Name="BestPrice" Type="Boolean" />
-    <Property Name="HourToFix" Type="Time" Precision="0" />
-    <Property Name="HourToFixCert" Type="Time" Precision="0" />
+    <Property Name="HourToFix" Type="Time" />
+    <Property Name="HourToFixCert" Type="Time" />
     <Property Name="History" Type="Boolean" />
     <Property Name="NoFriday" Type="Boolean" />
     <Property Name="PublicKey" Type="Guid" Nullable="false" />
     <Property Name="TGEIndex" Type="Boolean" />
-    <Property Name="HourToTGEIndex" Type="Time" Precision="0" />
-  </EntityType>
-  <ComplexType Name="fnFormulaVPC_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="Int32" Name="Formula" Nullable="true" />
-    <Property Type="Int32" Name="Year" Nullable="true" />
-    <Property Type="Double" Name="SumMarket_Value" Nullable="true" />
-    <Property Type="Double" Name="StdevMarket_Value" Nullable="true" />
-    <Property Type="Double" Name="AnualMarket_Value" Nullable="true" />
-    <Property Type="Double" Name="MaxPriceFixed" Nullable="true" />
-    <Property Type="Decimal" Name="VolumeFixProcent" Nullable="true" Precision="38" Scale="6" />
-    <Property Type="Decimal" Name="VolumeTotal" Nullable="true" Precision="19" Scale="4" />
-    <Property Type="String" Name="Indicator" Nullable="true" MaxLength="8" />
-    <Property Type="DateTime" Name="MinMarket_Date" Nullable="true" Precision="16" />
-    <Property Type="Double" Name="MinMarket_Value" Nullable="true" />
-    <Property Type="Double" Name="High" Nullable="true" />
-    <Property Type="Double" Name="Medium" Nullable="true" />
-    <Property Type="Double" Name="Low" Nullable="true" />
+    <Property Name="HourToTGEIndex" Type="Time" />
+    <Property Name="LivePrice" Type="Boolean" />
   </ComplexType>
+  <ComplexType Name="fnFormulaVPC_Result">
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Formula" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="SumMarket_Value" Type="Double" />
+    <Property Name="StdevMarket_Value" Type="Double" />
+    <Property Name="AnualMarket_Value" Type="Double" />
+    <Property Name="MaxPriceFixed" Type="Double" />
+    <Property Name="VolumeFixProcent" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="VolumeTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Indicator" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="MinMarket_Date" Type="DateTime" />
+    <Property Name="MinMarket_Value" Type="Double" />
+    <Property Name="High" Type="Double" />
+    <Property Name="Medium" Type="Double" />
+    <Property Name="Low" Type="Double" />
+    <Property Name="CalendarCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <EntityContainer Name="EnergyMarketPriceTestEntities2" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="fnFormulaByKey" IsComposable="true" ReturnType="Collection(EnergyMarketPriceTestModel.fnFormulaByKey_Result)">
+      <Parameter Name="Key" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fnFormulaVPC" IsComposable="true" ReturnType="Collection(EnergyMarketPriceTestModel.fnFormulaVPC_Result)">
+      <Parameter Name="Formula" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
 </Schema>

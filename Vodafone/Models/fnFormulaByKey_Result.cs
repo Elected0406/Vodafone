@@ -10,9 +10,8 @@
 namespace Vodafone.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Formula
+    public partial class fnFormulaByKey_Result
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -68,5 +67,6 @@ namespace Vodafone.Models
         public System.Guid PublicKey { get; set; }
         public Nullable<bool> TGEIndex { get; set; }
         public Nullable<System.TimeSpan> HourToTGEIndex { get; set; }
+        public Nullable<bool> LivePrice { get; set; }
     }
 }

@@ -231,10 +231,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EMPModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\fnFormulaVPC_Result.cs">
+    <Compile Include="Models\fnFormulaByKey_Result.cs">
       <DependentUpon>EMPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Formula.cs">
+    <Compile Include="Models\fnFormulaVPC_Result.cs">
       <DependentUpon>EMPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -333,6 +333,7 @@
     <Content Include="fonts\montserrat-ultralight-webfont.ttf" />
     <Content Include="fonts\montserrat-ultralight-webfont.woff" />
     <Content Include="fonts\montserrat-ultralight-webfont.woff2" />
+    <Content Include="App_Browsers\qt.browser" />
     <EntityDeploy Include="Models\EMPModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EMPModel.Designer.cs</LastGenOutput>
@@ -340,7 +341,7 @@
     <Content Include="Models\EMPModel.edmx.diagram">
       <DependentUpon>EMPModel.edmx</DependentUpon>
     </Content>
-    <Content Include="App_Browsers\qt.browser" />
+    <None Include="Properties\PublishProfiles\VodafoneVPC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

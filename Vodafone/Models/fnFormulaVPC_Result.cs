@@ -10,8 +10,7 @@
 namespace Vodafone.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class fnFormulaVPC_Result
     {
         public int ID { get; set; }
@@ -26,11 +25,9 @@ namespace Vodafone.Models
         public string Indicator { get; set; }
         public Nullable<System.DateTime> MinMarket_Date { get; set; }
         public Nullable<double> MinMarket_Value { get; set; }
-        [DataType(DataType.Currency)]
         public Nullable<double> High { get; set; }
-        [DataType(DataType.Currency)]
         public Nullable<double> Medium { get; set; }
-        [DataType(DataType.Currency)]
         public Nullable<double> Low { get; set; }
+        public string CalendarCode { get; set; }
     }
 }
