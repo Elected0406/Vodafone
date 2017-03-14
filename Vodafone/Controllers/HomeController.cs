@@ -15,47 +15,114 @@ namespace Vodafone.Controllers
 {
     public class HomeController : Controller
     {
-        private EnergyMarketPriceTestEntities2 db = new EnergyMarketPriceTestEntities2();
+        private EnergyTerminalNEntities db = new EnergyTerminalNEntities();
         [HttpGet]
         public ViewResult Index(Keyfromlink input)
         {
             if (input.key != null)
             {
                 var formulaid = db.fnFormulaByKey(input.key).FirstOrDefault().ID;
-                // string k = key;
                 var FormulaVPC = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year);
-                if (input.code != null) FormulaVPC = FormulaVPC.Where(p => p.CalendarCode == input.code).OrderByDescending(p => p.Year);
-                var FormulaVPCList = FormulaVPC.ToList();
-
-                ViewBag.High = FormulaVPCList.Take(1).FirstOrDefault().High;
-                ViewBag.Medium = FormulaVPCList.Take(1).FirstOrDefault().Medium;
-                ViewBag.Low = FormulaVPCList.Take(1).FirstOrDefault().Low;
-                ViewBag.MinMarket_Value = FormulaVPCList.Take(1).FirstOrDefault().MinMarket_Value;
-                ViewBag.MinMarket_Date = FormulaVPCList.Take(1).FirstOrDefault().MinMarket_Date;
-                ViewBag.VolumeTotal = FormulaVPCList.Take(1).FirstOrDefault().VolumeTotal;
-                ViewBag.MaxPriceFixed = FormulaVPCList.Take(1).FirstOrDefault().MaxPriceFixed;
-                ViewBag.MaxPriceFixed1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().MaxPriceFixed;
-                ViewBag.MaxPriceFixed2 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().MaxPriceFixed;
-                ViewBag.VolumeFixProcent = FormulaVPCList.Take(1).FirstOrDefault().VolumeFixProcent;
-                ViewBag.VolumeFixProcent1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().VolumeFixProcent;
-                ViewBag.VolumeFixProcent2 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().VolumeFixProcent;
+                var count = FormulaVPC.Count();
+                if (input.code != null)
+                {
+                    FormulaVPC = FormulaVPC.Where(p => p.CalendarCode == input.code).OrderByDescending(p => p.Year);
+                    var FormulaVPCList = FormulaVPC.ToList();
+                    if (count == 1)
+                    {
+                        ViewBag.High = FormulaVPCList.Take(1).FirstOrDefault().High;
+                        ViewBag.Medium = FormulaVPCList.Take(1).FirstOrDefault().Medium;
+                        ViewBag.Low = FormulaVPCList.Take(1).FirstOrDefault().Low;
+                        ViewBag.MinMarket_Value = FormulaVPCList.Take(1).FirstOrDefault().MinMarket_Value;
+                        ViewBag.MinMarket_Date = FormulaVPCList.Take(1).FirstOrDefault().MinMarket_Date;
+                        ViewBag.VolumeTotal = FormulaVPCList.Take(1).FirstOrDefault().VolumeTotal;
+                        ViewBag.MaxPriceFixed = FormulaVPCList.Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent = FormulaVPCList.Take(1).FirstOrDefault().VolumeFixProcent;
+                    }
+                    if (count == 2)
+                    {
+                        ViewBag.High = FormulaVPCList.Take(1).FirstOrDefault().High;
+                        ViewBag.Medium = FormulaVPCList.Take(1).FirstOrDefault().Medium;
+                        ViewBag.Low = FormulaVPCList.Take(1).FirstOrDefault().Low;
+                        ViewBag.MinMarket_Value = FormulaVPCList.Take(1).FirstOrDefault().MinMarket_Value;
+                        ViewBag.MinMarket_Date = FormulaVPCList.Take(1).FirstOrDefault().MinMarket_Date;
+                        ViewBag.VolumeTotal = FormulaVPCList.Take(1).FirstOrDefault().VolumeTotal;
+                        ViewBag.MaxPriceFixed = FormulaVPCList.Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent = FormulaVPCList.Take(1).FirstOrDefault().VolumeFixProcent;
+                        ViewBag.MaxPriceFixed1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().VolumeFixProcent;
+                    }
+                    if (count >= 3)
+                    {
+                        ViewBag.High = FormulaVPCList.Take(1).FirstOrDefault().High;
+                        ViewBag.Medium = FormulaVPCList.Take(1).FirstOrDefault().Medium;
+                        ViewBag.Low = FormulaVPCList.Take(1).FirstOrDefault().Low;
+                        ViewBag.MinMarket_Value = FormulaVPCList.Take(1).FirstOrDefault().MinMarket_Value;
+                        ViewBag.MinMarket_Date = FormulaVPCList.Take(1).FirstOrDefault().MinMarket_Date;
+                        ViewBag.VolumeTotal = FormulaVPCList.Take(1).FirstOrDefault().VolumeTotal;
+                        ViewBag.MaxPriceFixed = FormulaVPCList.Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent = FormulaVPCList.Take(1).FirstOrDefault().VolumeFixProcent;
+                        ViewBag.MaxPriceFixed1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().VolumeFixProcent;
+                        ViewBag.MaxPriceFixed2 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent2 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().VolumeFixProcent;
+                    }
+                }
+                else
+                {
+                    if (count == 1)
+                    {
+                        ViewBag.High = FormulaVPC.Take(1).FirstOrDefault().High;
+                        ViewBag.Medium = FormulaVPC.Take(1).FirstOrDefault().Medium;
+                        ViewBag.Low = FormulaVPC.Take(1).FirstOrDefault().Low;
+                        ViewBag.MinMarket_Value = FormulaVPC.Take(1).FirstOrDefault().MinMarket_Value;
+                        ViewBag.MinMarket_Date = FormulaVPC.Take(1).FirstOrDefault().MinMarket_Date;
+                        ViewBag.VolumeTotal = FormulaVPC.Take(1).FirstOrDefault().VolumeTotal;
+                        ViewBag.MaxPriceFixed = FormulaVPC.Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent = FormulaVPC.Take(1).FirstOrDefault().VolumeFixProcent;
+                    }
+                    if (count == 2)
+                    {
+                        ViewBag.High = FormulaVPC.Take(1).FirstOrDefault().High;
+                        ViewBag.Medium = FormulaVPC.Take(1).FirstOrDefault().Medium;
+                        ViewBag.Low = FormulaVPC.Take(1).FirstOrDefault().Low;
+                        ViewBag.MinMarket_Value = FormulaVPC.Take(1).FirstOrDefault().MinMarket_Value;
+                        ViewBag.MinMarket_Date = FormulaVPC.Take(1).FirstOrDefault().MinMarket_Date;
+                        ViewBag.VolumeTotal = FormulaVPC.Take(1).FirstOrDefault().VolumeTotal;
+                        ViewBag.MaxPriceFixed = FormulaVPC.Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent = FormulaVPC.Take(1).FirstOrDefault().VolumeFixProcent;
+                        ViewBag.MaxPriceFixed1 = FormulaVPC.Skip(1).Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent1 = FormulaVPC.Skip(1).Take(1).FirstOrDefault().VolumeFixProcent;
+                    }
+                    if (count >= 3)
+                    {
+                        ViewBag.High = FormulaVPC.Take(1).FirstOrDefault().High;
+                        ViewBag.Medium = FormulaVPC.Take(1).FirstOrDefault().Medium;
+                        ViewBag.Low = FormulaVPC.Take(1).FirstOrDefault().Low;
+                        ViewBag.MinMarket_Value = FormulaVPC.Take(1).FirstOrDefault().MinMarket_Value;
+                        ViewBag.MinMarket_Date = FormulaVPC.Take(1).FirstOrDefault().MinMarket_Date;
+                        ViewBag.VolumeTotal = FormulaVPC.Take(1).FirstOrDefault().VolumeTotal;
+                        ViewBag.MaxPriceFixed = FormulaVPC.Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent = FormulaVPC.Take(1).FirstOrDefault().VolumeFixProcent;
+                        ViewBag.MaxPriceFixed1 = FormulaVPC.Skip(1).Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent1 = FormulaVPC.Skip(1).Take(1).FirstOrDefault().VolumeFixProcent;
+                        ViewBag.MaxPriceFixed2 = FormulaVPC.Skip(2).Take(1).FirstOrDefault().MaxPriceFixed;
+                        ViewBag.VolumeFixProcent2 = FormulaVPC.Skip(2).Take(1).FirstOrDefault().VolumeFixProcent;
+                    }
+                }
             }
-            else {
+            else
+            {
                 ViewBag.High = 0;
                 ViewBag.Medium = 0;
                 ViewBag.Low = 0;
                 ViewBag.MinMarket_Value = 0;
                 ViewBag.MinMarket_Date = DateTime.Now;
                 ViewBag.VolumeTotal = 0;
-                ViewBag.MaxPriceFixed = 0;
-                ViewBag.MaxPriceFixed1 = 0;
-                ViewBag.MaxPriceFixed2 = 0;
-                ViewBag.VolumeFixProcent = 0;
-                ViewBag.VolumeFixProcent1 = 0;
-                ViewBag.VolumeFixProcent2 = 0;
             }
             return View();
         }
+
         public ActionResult About()
         {
 

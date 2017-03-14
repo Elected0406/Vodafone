@@ -216,26 +216,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\EMPModel.Context.cs">
+    <Compile Include="Models\EMPEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EMPModel.Context.tt</DependentUpon>
+      <DependentUpon>EMPEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EMPModel.cs">
+    <Compile Include="Models\EMPEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EMPModel.tt</DependentUpon>
+      <DependentUpon>EMPEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EMPModel.Designer.cs">
+    <Compile Include="Models\EMPEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EMPModel.edmx</DependentUpon>
+      <DependentUpon>EMPEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\fnFormulaByKey_Result.cs">
-      <DependentUpon>EMPModel.tt</DependentUpon>
+      <DependentUpon>EMPEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\fnFormulaVPC_Result.cs">
-      <DependentUpon>EMPModel.tt</DependentUpon>
+      <DependentUpon>EMPEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -273,15 +273,15 @@
     <Content Include="images\Stephane.png" />
     <Content Include="images\stephane2.png" />
     <Content Include="images\user.jpg" />
-    <Content Include="Models\EMPModel.Context.tt">
+    <Content Include="Models\EMPEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EMPModel.edmx</DependentUpon>
-      <LastGenOutput>EMPModel.Context.cs</LastGenOutput>
+      <DependentUpon>EMPEntities.edmx</DependentUpon>
+      <LastGenOutput>EMPEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EMPModel.tt">
+    <Content Include="Models\EMPEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EMPModel.edmx</DependentUpon>
-      <LastGenOutput>EMPModel.cs</LastGenOutput>
+      <DependentUpon>EMPEntities.edmx</DependentUpon>
+      <LastGenOutput>EMPEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
@@ -334,12 +334,12 @@
     <Content Include="fonts\montserrat-ultralight-webfont.woff" />
     <Content Include="fonts\montserrat-ultralight-webfont.woff2" />
     <Content Include="App_Browsers\qt.browser" />
-    <EntityDeploy Include="Models\EMPModel.edmx">
+    <EntityDeploy Include="Models\EMPEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EMPModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EMPEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EMPModel.edmx.diagram">
-      <DependentUpon>EMPModel.edmx</DependentUpon>
+    <Content Include="Models\EMPEntities.edmx.diagram">
+      <DependentUpon>EMPEntities.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\VodafoneVPC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

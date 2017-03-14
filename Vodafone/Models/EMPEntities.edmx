@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EnergyTerminalNModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="fnFormulaByKey" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Key" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ID" Type="int" Nullable="false" />
+                <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+                <Property Name="Year" Type="smallint" />
+                <Property Name="Currency" Type="tinyint" Nullable="false" />
+                <Property Name="Unit" Type="tinyint" Nullable="false" />
+                <Property Name="Create" Type="datetime" Nullable="false" />
+                <Property Name="Period" Type="tinyint" Nullable="false" />
+                <Property Name="Market_ID" Type="int" Nullable="false" />
+                <Property Name="YearFrom" Type="smallint" Nullable="false" />
+                <Property Name="CalendarFrom" Type="tinyint" Nullable="false" />
+                <Property Name="YearTo" Type="smallint" Nullable="false" />
+                <Property Name="CalendarTo" Type="tinyint" Nullable="false" />
+                <Property Name="Flex" Type="bit" />
+                <Property Name="ScoreEMP" Type="bit" />
+                <Property Name="ScoreSpot" Type="bit" />
+                <Property Name="ScoreAVGMP" Type="bit" />
+                <Property Name="ScoreCostom" Type="bit" />
+                <Property Name="PerfectScoreValue" Type="money" />
+                <Property Name="LockUnlock" Type="bit" />
+                <Property Name="FixMinM" Type="tinyint" />
+                <Property Name="FixMinQ" Type="tinyint" />
+                <Property Name="FixMinY" Type="tinyint" />
+                <Property Name="TrancheLock" Type="tinyint" />
+                <Property Name="TrancheUnLockM" Type="tinyint" />
+                <Property Name="TrancheUnLockQ" Type="tinyint" />
+                <Property Name="TrancheUnLockY" Type="tinyint" />
+                <Property Name="TrancheLockFrom" Type="tinyint" />
+                <Property Name="TrancheLockTo" Type="tinyint" />
+                <Property Name="TrancheUnLockFromM" Type="tinyint" />
+                <Property Name="TrancheUnLockToM" Type="tinyint" />
+                <Property Name="TrancheUnLockFromQ" Type="tinyint" />
+                <Property Name="TrancheUnLockToQ" Type="tinyint" />
+                <Property Name="TrancheUnLockFromY" Type="tinyint" />
+                <Property Name="TrancheUnLockToY" Type="tinyint" />
+                <Property Name="AutoLockPriceKR" Type="money" />
+                <Property Name="AutoLockPriceNOK" Type="money" />
+                <Property Name="AutoLockPriceLTEDF" Type="money" />
+                <Property Name="CertPeriod" Type="tinyint" />
+                <Property Name="CertTranche" Type="tinyint" />
+                <Property Name="CertMin" Type="tinyint" />
+                <Property Name="CertMax" Type="tinyint" />
+                <Property Name="CertFixSession" Type="tinyint" />
+                <Property Name="FixMonth" Type="bit" />
+                <Property Name="FixQuarter" Type="bit" />
+                <Property Name="FixYear" Type="bit" />
+                <Property Name="FixSession" Type="tinyint" />
+                <Property Name="BestPrice" Type="bit" />
+                <Property Name="HourToFix" Type="time" Precision="0" />
+                <Property Name="HourToFixCert" Type="time" Precision="0" />
+                <Property Name="History" Type="bit" />
+                <Property Name="NoFriday" Type="bit" />
+                <Property Name="PublicKey" Type="uniqueidentifier" Nullable="false" />
+                <Property Name="TGEIndex" Type="bit" />
+                <Property Name="HourToTGEIndex" Type="time" Precision="0" />
+                <Property Name="LivePrice" Type="bit" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fnFormulaVPC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Formula" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ID" Type="int" Nullable="false" />
+                <Property Name="Formula" Type="int" />
+                <Property Name="Year" Type="int" />
+                <Property Name="SumMarket_Value" Type="float" />
+                <Property Name="StdevMarket_Value" Type="float" />
+                <Property Name="AnualMarket_Value" Type="float" />
+                <Property Name="MaxPriceFixed" Type="float" />
+                <Property Name="VolumeFixProcent" Type="decimal" Precision="38" Scale="6" />
+                <Property Name="VolumeTotal" Type="money" />
+                <Property Name="Indicator" Type="varchar" MaxLength="8" />
+                <Property Name="MinMarket_Date" Type="smalldatetime" />
+                <Property Name="MinMarket_Value" Type="float" />
+                <Property Name="High" Type="float" />
+                <Property Name="Medium" Type="float" />
+                <Property Name="Low" Type="float" />
+                <Property Name="CalendarCode" Type="varchar" MaxLength="3" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="EnergyTerminalNModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EnergyTerminalNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="fnFormulaByKey_Result">
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Year" Type="Int16" />
+          <Property Name="Currency" Type="Byte" Nullable="false" />
+          <Property Name="Unit" Type="Byte" Nullable="false" />
+          <Property Name="Create" Type="DateTime" Nullable="false" />
+          <Property Name="Period" Type="Byte" Nullable="false" />
+          <Property Name="Market_ID" Type="Int32" Nullable="false" />
+          <Property Name="YearFrom" Type="Int16" Nullable="false" />
+          <Property Name="CalendarFrom" Type="Byte" Nullable="false" />
+          <Property Name="YearTo" Type="Int16" Nullable="false" />
+          <Property Name="CalendarTo" Type="Byte" Nullable="false" />
+          <Property Name="Flex" Type="Boolean" />
+          <Property Name="ScoreEMP" Type="Boolean" />
+          <Property Name="ScoreSpot" Type="Boolean" />
+          <Property Name="ScoreAVGMP" Type="Boolean" />
+          <Property Name="ScoreCostom" Type="Boolean" />
+          <Property Name="PerfectScoreValue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LockUnlock" Type="Boolean" />
+          <Property Name="FixMinM" Type="Byte" />
+          <Property Name="FixMinQ" Type="Byte" />
+          <Property Name="FixMinY" Type="Byte" />
+          <Property Name="TrancheLock" Type="Byte" />
+          <Property Name="TrancheUnLockM" Type="Byte" />
+          <Property Name="TrancheUnLockQ" Type="Byte" />
+          <Property Name="TrancheUnLockY" Type="Byte" />
+          <Property Name="TrancheLockFrom" Type="Byte" />
+          <Property Name="TrancheLockTo" Type="Byte" />
+          <Property Name="TrancheUnLockFromM" Type="Byte" />
+          <Property Name="TrancheUnLockToM" Type="Byte" />
+          <Property Name="TrancheUnLockFromQ" Type="Byte" />
+          <Property Name="TrancheUnLockToQ" Type="Byte" />
+          <Property Name="TrancheUnLockFromY" Type="Byte" />
+          <Property Name="TrancheUnLockToY" Type="Byte" />
+          <Property Name="AutoLockPriceKR" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AutoLockPriceNOK" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AutoLockPriceLTEDF" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CertPeriod" Type="Byte" />
+          <Property Name="CertTranche" Type="Byte" />
+          <Property Name="CertMin" Type="Byte" />
+          <Property Name="CertMax" Type="Byte" />
+          <Property Name="CertFixSession" Type="Byte" />
+          <Property Name="FixMonth" Type="Boolean" />
+          <Property Name="FixQuarter" Type="Boolean" />
+          <Property Name="FixYear" Type="Boolean" />
+          <Property Name="FixSession" Type="Byte" />
+          <Property Name="BestPrice" Type="Boolean" />
+          <Property Name="HourToFix" Type="Time" />
+          <Property Name="HourToFixCert" Type="Time" />
+          <Property Name="History" Type="Boolean" />
+          <Property Name="NoFriday" Type="Boolean" />
+          <Property Name="PublicKey" Type="Guid" Nullable="false" />
+          <Property Name="TGEIndex" Type="Boolean" />
+          <Property Name="HourToTGEIndex" Type="Time" />
+          <Property Name="LivePrice" Type="Boolean" />
+        </ComplexType>
+        <ComplexType Name="fnFormulaVPC_Result">
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Formula" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="SumMarket_Value" Type="Double" />
+          <Property Name="StdevMarket_Value" Type="Double" />
+          <Property Name="AnualMarket_Value" Type="Double" />
+          <Property Name="MaxPriceFixed" Type="Double" />
+          <Property Name="VolumeFixProcent" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="VolumeTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Indicator" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MinMarket_Date" Type="DateTime" />
+          <Property Name="MinMarket_Value" Type="Double" />
+          <Property Name="High" Type="Double" />
+          <Property Name="Medium" Type="Double" />
+          <Property Name="Low" Type="Double" />
+          <Property Name="CalendarCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <EntityContainer Name="EnergyTerminalNEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="fnFormulaByKey" IsComposable="true" ReturnType="Collection(EnergyTerminalNModel.fnFormulaByKey_Result)">
+            <Parameter Name="Key" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="fnFormulaVPC" IsComposable="true" ReturnType="Collection(EnergyTerminalNModel.fnFormulaVPC_Result)">
+            <Parameter Name="Formula" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EnergyTerminalNModelStoreContainer" CdmEntityContainer="EnergyTerminalNEntities">
+          <FunctionImportMapping FunctionName="EnergyTerminalNModel.Store.fnFormulaByKey" FunctionImportName="fnFormulaByKey">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnergyTerminalNModel.fnFormulaByKey_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Create" ColumnName="Create" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Market_ID" ColumnName="Market_ID" />
+                <ScalarProperty Name="YearFrom" ColumnName="YearFrom" />
+                <ScalarProperty Name="CalendarFrom" ColumnName="CalendarFrom" />
+                <ScalarProperty Name="YearTo" ColumnName="YearTo" />
+                <ScalarProperty Name="CalendarTo" ColumnName="CalendarTo" />
+                <ScalarProperty Name="Flex" ColumnName="Flex" />
+                <ScalarProperty Name="ScoreEMP" ColumnName="ScoreEMP" />
+                <ScalarProperty Name="ScoreSpot" ColumnName="ScoreSpot" />
+                <ScalarProperty Name="ScoreAVGMP" ColumnName="ScoreAVGMP" />
+                <ScalarProperty Name="ScoreCostom" ColumnName="ScoreCostom" />
+                <ScalarProperty Name="PerfectScoreValue" ColumnName="PerfectScoreValue" />
+                <ScalarProperty Name="LockUnlock" ColumnName="LockUnlock" />
+                <ScalarProperty Name="FixMinM" ColumnName="FixMinM" />
+                <ScalarProperty Name="FixMinQ" ColumnName="FixMinQ" />
+                <ScalarProperty Name="FixMinY" ColumnName="FixMinY" />
+                <ScalarProperty Name="TrancheLock" ColumnName="TrancheLock" />
+                <ScalarProperty Name="TrancheUnLockM" ColumnName="TrancheUnLockM" />
+                <ScalarProperty Name="TrancheUnLockQ" ColumnName="TrancheUnLockQ" />
+                <ScalarProperty Name="TrancheUnLockY" ColumnName="TrancheUnLockY" />
+                <ScalarProperty Name="TrancheLockFrom" ColumnName="TrancheLockFrom" />
+                <ScalarProperty Name="TrancheLockTo" ColumnName="TrancheLockTo" />
+                <ScalarProperty Name="TrancheUnLockFromM" ColumnName="TrancheUnLockFromM" />
+                <ScalarProperty Name="TrancheUnLockToM" ColumnName="TrancheUnLockToM" />
+                <ScalarProperty Name="TrancheUnLockFromQ" ColumnName="TrancheUnLockFromQ" />
+                <ScalarProperty Name="TrancheUnLockToQ" ColumnName="TrancheUnLockToQ" />
+                <ScalarProperty Name="TrancheUnLockFromY" ColumnName="TrancheUnLockFromY" />
+                <ScalarProperty Name="TrancheUnLockToY" ColumnName="TrancheUnLockToY" />
+                <ScalarProperty Name="AutoLockPriceKR" ColumnName="AutoLockPriceKR" />
+                <ScalarProperty Name="AutoLockPriceNOK" ColumnName="AutoLockPriceNOK" />
+                <ScalarProperty Name="AutoLockPriceLTEDF" ColumnName="AutoLockPriceLTEDF" />
+                <ScalarProperty Name="CertPeriod" ColumnName="CertPeriod" />
+                <ScalarProperty Name="CertTranche" ColumnName="CertTranche" />
+                <ScalarProperty Name="CertMin" ColumnName="CertMin" />
+                <ScalarProperty Name="CertMax" ColumnName="CertMax" />
+                <ScalarProperty Name="CertFixSession" ColumnName="CertFixSession" />
+                <ScalarProperty Name="FixMonth" ColumnName="FixMonth" />
+                <ScalarProperty Name="FixQuarter" ColumnName="FixQuarter" />
+                <ScalarProperty Name="FixYear" ColumnName="FixYear" />
+                <ScalarProperty Name="FixSession" ColumnName="FixSession" />
+                <ScalarProperty Name="BestPrice" ColumnName="BestPrice" />
+                <ScalarProperty Name="HourToFix" ColumnName="HourToFix" />
+                <ScalarProperty Name="HourToFixCert" ColumnName="HourToFixCert" />
+                <ScalarProperty Name="History" ColumnName="History" />
+                <ScalarProperty Name="NoFriday" ColumnName="NoFriday" />
+                <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+                <ScalarProperty Name="TGEIndex" ColumnName="TGEIndex" />
+                <ScalarProperty Name="HourToTGEIndex" ColumnName="HourToTGEIndex" />
+                <ScalarProperty Name="LivePrice" ColumnName="LivePrice" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="EnergyTerminalNModel.Store.fnFormulaVPC" FunctionImportName="fnFormulaVPC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnergyTerminalNModel.fnFormulaVPC_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Formula" ColumnName="Formula" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="SumMarket_Value" ColumnName="SumMarket_Value" />
+                <ScalarProperty Name="StdevMarket_Value" ColumnName="StdevMarket_Value" />
+                <ScalarProperty Name="AnualMarket_Value" ColumnName="AnualMarket_Value" />
+                <ScalarProperty Name="MaxPriceFixed" ColumnName="MaxPriceFixed" />
+                <ScalarProperty Name="VolumeFixProcent" ColumnName="VolumeFixProcent" />
+                <ScalarProperty Name="VolumeTotal" ColumnName="VolumeTotal" />
+                <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+                <ScalarProperty Name="MinMarket_Date" ColumnName="MinMarket_Date" />
+                <ScalarProperty Name="MinMarket_Value" ColumnName="MinMarket_Value" />
+                <ScalarProperty Name="High" ColumnName="High" />
+                <ScalarProperty Name="Medium" ColumnName="Medium" />
+                <ScalarProperty Name="Low" ColumnName="Low" />
+                <ScalarProperty Name="CalendarCode" ColumnName="CalendarCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
