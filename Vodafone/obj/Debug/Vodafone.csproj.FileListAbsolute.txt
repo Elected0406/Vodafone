@@ -85,3 +85,4 @@ D:\Projects\Vodafone\Vodafone\bin\Rotativa.Core.dll
 D:\Projects\Vodafone\Vodafone\bin\Rotativa.MVC.dll
 D:\Projects\Vodafone\Vodafone\bin\itextsharp.xml
 D:\Projects\Vodafone\Vodafone\bin\DocumentFormat.OpenXml.dll
+D:\Projects\Vodafone\Vodafone\bin\DocumentFormat.OpenXml.xml

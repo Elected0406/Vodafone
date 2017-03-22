@@ -19,7 +19,7 @@ namespace Vodafone.Controllers
         [HttpGet]
         public ViewResult Index(Keyfromlink input)
         {
-            
+
             if (input.key != null)
             {
                 var formulaid = db.fnFormulaByKey(input.key).FirstOrDefault().ID;
