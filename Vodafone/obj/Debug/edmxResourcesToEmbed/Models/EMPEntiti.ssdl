@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TerminalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="fnFormulaByKey" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Key" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Currency" Type="tinyint" Nullable="false" />
+          <Property Name="CurrencyCode" Type="varchar" MaxLength="7" />
+          <Property Name="Unit" Type="tinyint" Nullable="false" />
+          <Property Name="UnitName" Type="varchar" MaxLength="10" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnFormulaVPC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Formula" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Formula" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="SumMarket_Value" Type="float" />
+          <Property Name="StdevMarket_Value" Type="float" />
+          <Property Name="AnualMarket_Value" Type="float" />
+          <Property Name="MaxPriceFixed" Type="float" />
+          <Property Name="VolumeFixProcent" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="VolumeTotal" Type="money" />
+          <Property Name="Indicator" Type="varchar" MaxLength="8" />
+          <Property Name="MinMarket_Date" Type="smalldatetime" />
+          <Property Name="MinMarket_Value" Type="float" />
+          <Property Name="High" Type="float" />
+          <Property Name="Medium" Type="float" />
+          <Property Name="Low" Type="float" />
+          <Property Name="CalendarCode" Type="varchar" MaxLength="3" />
+          <Property Name="RowNumber" Type="bigint" />
+          <Property Name="PolicyCompliant" Type="varchar" MaxLength="3" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <EntityContainer Name="TerminalModelStoreContainer" />
+</Schema>

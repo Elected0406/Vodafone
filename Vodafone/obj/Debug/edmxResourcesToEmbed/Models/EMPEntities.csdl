@@ -3,59 +3,10 @@
   <ComplexType Name="fnFormulaByKey_Result">
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Year" Type="Int16" />
     <Property Name="Currency" Type="Byte" Nullable="false" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
     <Property Name="Unit" Type="Byte" Nullable="false" />
-    <Property Name="Create" Type="DateTime" Nullable="false" />
-    <Property Name="Period" Type="Byte" Nullable="false" />
-    <Property Name="Market_ID" Type="Int32" Nullable="false" />
-    <Property Name="YearFrom" Type="Int16" Nullable="false" />
-    <Property Name="CalendarFrom" Type="Byte" Nullable="false" />
-    <Property Name="YearTo" Type="Int16" Nullable="false" />
-    <Property Name="CalendarTo" Type="Byte" Nullable="false" />
-    <Property Name="Flex" Type="Boolean" />
-    <Property Name="ScoreEMP" Type="Boolean" />
-    <Property Name="ScoreSpot" Type="Boolean" />
-    <Property Name="ScoreAVGMP" Type="Boolean" />
-    <Property Name="ScoreCostom" Type="Boolean" />
-    <Property Name="PerfectScoreValue" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="LockUnlock" Type="Boolean" />
-    <Property Name="FixMinM" Type="Byte" />
-    <Property Name="FixMinQ" Type="Byte" />
-    <Property Name="FixMinY" Type="Byte" />
-    <Property Name="TrancheLock" Type="Byte" />
-    <Property Name="TrancheUnLockM" Type="Byte" />
-    <Property Name="TrancheUnLockQ" Type="Byte" />
-    <Property Name="TrancheUnLockY" Type="Byte" />
-    <Property Name="TrancheLockFrom" Type="Byte" />
-    <Property Name="TrancheLockTo" Type="Byte" />
-    <Property Name="TrancheUnLockFromM" Type="Byte" />
-    <Property Name="TrancheUnLockToM" Type="Byte" />
-    <Property Name="TrancheUnLockFromQ" Type="Byte" />
-    <Property Name="TrancheUnLockToQ" Type="Byte" />
-    <Property Name="TrancheUnLockFromY" Type="Byte" />
-    <Property Name="TrancheUnLockToY" Type="Byte" />
-    <Property Name="AutoLockPriceKR" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="AutoLockPriceNOK" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="AutoLockPriceLTEDF" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="CertPeriod" Type="Byte" />
-    <Property Name="CertTranche" Type="Byte" />
-    <Property Name="CertMin" Type="Byte" />
-    <Property Name="CertMax" Type="Byte" />
-    <Property Name="CertFixSession" Type="Byte" />
-    <Property Name="FixMonth" Type="Boolean" />
-    <Property Name="FixQuarter" Type="Boolean" />
-    <Property Name="FixYear" Type="Boolean" />
-    <Property Name="FixSession" Type="Byte" />
-    <Property Name="BestPrice" Type="Boolean" />
-    <Property Name="HourToFix" Type="Time" />
-    <Property Name="HourToFixCert" Type="Time" />
-    <Property Name="History" Type="Boolean" />
-    <Property Name="NoFriday" Type="Boolean" />
-    <Property Name="PublicKey" Type="Guid" Nullable="false" />
-    <Property Name="TGEIndex" Type="Boolean" />
-    <Property Name="HourToTGEIndex" Type="Time" />
-    <Property Name="LivePrice" Type="Boolean" />
+    <Property Name="UnitName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
   </ComplexType>
   <ComplexType Name="fnFormulaVPC_Result">
     <Property Name="ID" Type="Int32" Nullable="false" />
@@ -75,7 +26,7 @@
     <Property Name="Low" Type="Double" />
     <Property Name="CalendarCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
   </ComplexType>
-  <EntityContainer Name="EnergyTerminalNEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EnergyTerminalNEntities1" annotation:LazyLoadingEnabled="true">
     <FunctionImport Name="fnFormulaByKey" IsComposable="true" ReturnType="Collection(EnergyTerminalNModel.fnFormulaByKey_Result)">
       <Parameter Name="Key" Mode="In" Type="String" />
     </FunctionImport>

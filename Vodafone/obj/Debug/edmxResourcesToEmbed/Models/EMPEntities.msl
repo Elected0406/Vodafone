@@ -1,64 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EnergyTerminalNModelStoreContainer" CdmEntityContainer="EnergyTerminalNEntities">
+  <EntityContainerMapping StorageEntityContainer="EnergyTerminalNModelStoreContainer" CdmEntityContainer="EnergyTerminalNEntities1">
     <FunctionImportMapping FunctionName="EnergyTerminalNModel.Store.fnFormulaByKey" FunctionImportName="fnFormulaByKey">
       <ResultMapping>
         <ComplexTypeMapping TypeName="EnergyTerminalNModel.fnFormulaByKey_Result">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Year" ColumnName="Year" />
           <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
           <ScalarProperty Name="Unit" ColumnName="Unit" />
-          <ScalarProperty Name="Create" ColumnName="Create" />
-          <ScalarProperty Name="Period" ColumnName="Period" />
-          <ScalarProperty Name="Market_ID" ColumnName="Market_ID" />
-          <ScalarProperty Name="YearFrom" ColumnName="YearFrom" />
-          <ScalarProperty Name="CalendarFrom" ColumnName="CalendarFrom" />
-          <ScalarProperty Name="YearTo" ColumnName="YearTo" />
-          <ScalarProperty Name="CalendarTo" ColumnName="CalendarTo" />
-          <ScalarProperty Name="Flex" ColumnName="Flex" />
-          <ScalarProperty Name="ScoreEMP" ColumnName="ScoreEMP" />
-          <ScalarProperty Name="ScoreSpot" ColumnName="ScoreSpot" />
-          <ScalarProperty Name="ScoreAVGMP" ColumnName="ScoreAVGMP" />
-          <ScalarProperty Name="ScoreCostom" ColumnName="ScoreCostom" />
-          <ScalarProperty Name="PerfectScoreValue" ColumnName="PerfectScoreValue" />
-          <ScalarProperty Name="LockUnlock" ColumnName="LockUnlock" />
-          <ScalarProperty Name="FixMinM" ColumnName="FixMinM" />
-          <ScalarProperty Name="FixMinQ" ColumnName="FixMinQ" />
-          <ScalarProperty Name="FixMinY" ColumnName="FixMinY" />
-          <ScalarProperty Name="TrancheLock" ColumnName="TrancheLock" />
-          <ScalarProperty Name="TrancheUnLockM" ColumnName="TrancheUnLockM" />
-          <ScalarProperty Name="TrancheUnLockQ" ColumnName="TrancheUnLockQ" />
-          <ScalarProperty Name="TrancheUnLockY" ColumnName="TrancheUnLockY" />
-          <ScalarProperty Name="TrancheLockFrom" ColumnName="TrancheLockFrom" />
-          <ScalarProperty Name="TrancheLockTo" ColumnName="TrancheLockTo" />
-          <ScalarProperty Name="TrancheUnLockFromM" ColumnName="TrancheUnLockFromM" />
-          <ScalarProperty Name="TrancheUnLockToM" ColumnName="TrancheUnLockToM" />
-          <ScalarProperty Name="TrancheUnLockFromQ" ColumnName="TrancheUnLockFromQ" />
-          <ScalarProperty Name="TrancheUnLockToQ" ColumnName="TrancheUnLockToQ" />
-          <ScalarProperty Name="TrancheUnLockFromY" ColumnName="TrancheUnLockFromY" />
-          <ScalarProperty Name="TrancheUnLockToY" ColumnName="TrancheUnLockToY" />
-          <ScalarProperty Name="AutoLockPriceKR" ColumnName="AutoLockPriceKR" />
-          <ScalarProperty Name="AutoLockPriceNOK" ColumnName="AutoLockPriceNOK" />
-          <ScalarProperty Name="AutoLockPriceLTEDF" ColumnName="AutoLockPriceLTEDF" />
-          <ScalarProperty Name="CertPeriod" ColumnName="CertPeriod" />
-          <ScalarProperty Name="CertTranche" ColumnName="CertTranche" />
-          <ScalarProperty Name="CertMin" ColumnName="CertMin" />
-          <ScalarProperty Name="CertMax" ColumnName="CertMax" />
-          <ScalarProperty Name="CertFixSession" ColumnName="CertFixSession" />
-          <ScalarProperty Name="FixMonth" ColumnName="FixMonth" />
-          <ScalarProperty Name="FixQuarter" ColumnName="FixQuarter" />
-          <ScalarProperty Name="FixYear" ColumnName="FixYear" />
-          <ScalarProperty Name="FixSession" ColumnName="FixSession" />
-          <ScalarProperty Name="BestPrice" ColumnName="BestPrice" />
-          <ScalarProperty Name="HourToFix" ColumnName="HourToFix" />
-          <ScalarProperty Name="HourToFixCert" ColumnName="HourToFixCert" />
-          <ScalarProperty Name="History" ColumnName="History" />
-          <ScalarProperty Name="NoFriday" ColumnName="NoFriday" />
-          <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
-          <ScalarProperty Name="TGEIndex" ColumnName="TGEIndex" />
-          <ScalarProperty Name="HourToTGEIndex" ColumnName="HourToTGEIndex" />
-          <ScalarProperty Name="LivePrice" ColumnName="LivePrice" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

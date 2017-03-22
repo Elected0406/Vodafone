@@ -29,5 +29,7 @@ namespace Vodafone.Models
         public Nullable<double> Medium { get; set; }
         public Nullable<double> Low { get; set; }
         public string CalendarCode { get; set; }
+        public Nullable<long> RowNumber { get; set; }
+        public string PolicyCompliant { get; set; }
     }
 }
