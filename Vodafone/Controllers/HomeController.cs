@@ -16,7 +16,7 @@ namespace Vodafone.Controllers
     public class HomeController : Controller
     {
         private TerminalEntities db = new TerminalEntities();
-        [HttpGet]
+        [HttpGet]        
         public ViewResult Index(Keyfromlink input)
         {
 
@@ -59,7 +59,7 @@ namespace Vodafone.Controllers
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "Low") { ViewBag.Lowx = "X"; } else { ViewBag.Lowx = " "; }
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "High") { ViewBag.Highx = "X"; } else { ViewBag.Highx = " "; }
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
-                        ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;
+                        ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;                 
                     }
                     if (count == 2)
                     {
@@ -105,6 +105,8 @@ namespace Vodafone.Controllers
                         ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant2 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant3 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().PolicyCompliant;
+                        ViewBag.key = input.key;
+                        ViewBag.code = input.code;
                     }
                 }
                 else
@@ -194,9 +196,10 @@ namespace Vodafone.Controllers
                 ViewBag.PolicyCompliant3 = "null";
             }
             return View();
-        }
+        }        
         public ActionResult GetReport(Keyfromlink input)
         {
+            
             if (input.key != null)
             {
                 var formulaid = db.fnFormulaByKey(input.key).FirstOrDefault().ID;
@@ -370,11 +373,12 @@ namespace Vodafone.Controllers
                 ViewBag.PolicyCompliant2 = "null";
                 ViewBag.PolicyCompliant3 = "null";
             }
+
             return View();
-        }
+}
         public ActionResult ReportPDF(Keyfromlink input)
         {
-            return new Rotativa.MVC.ActionAsPdf("GetReport");
+            return new Rotativa.MVC.ViewAsPdf("GetReport");
         }
         public ActionResult About()
         {

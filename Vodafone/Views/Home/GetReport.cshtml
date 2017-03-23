@@ -1,400 +1,346 @@
-﻿<link rel="stylesheet" href="~/Content/GetReport.css" />
+﻿<link rel="stylesheet" href="~/Content/GetReport.css"/>
 @model  Vodafone.Models.fnFormulaVPC_Result
 @{
     ViewData["Title"] = "";
 }
-<a href="@Url.Action("ReportPDF", "Home")" class="button bacground-grey"><h4>Export to PDF</h4></a>
-<section class="contentblock">
-    <div class="container">
-            <div class="col-sm-12 pb0">
-                <div class="heading1">
-                    <h3><span><b>VPC ELECTRICITY POLICY</b></span></h3>
-                    <div class="line2"></div>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                    <h3 class="color-grey"><span><b>APPENDIX A</b></span></h3>
-            </div>
-            <div class="row col-xs-12 pb0">
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-9 fb">
-                <h4 class="bacground-grey"><span><b>OPERATING COMPANY</b></span></h4>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"><h4 class="bacground-orange"><span>@ViewBag.raportname</span></h4></div>
-                <div class="col-sm-7 col-md-6 col-lg-10 col-xl-9">
-                    <h5 class="yelou-greed"><span><b>REPORTING PERIOD:</b></span></h5>
-                </div>
-                <div class="col-sm-5 col-md-6 col-lg-2 col-xl-3">
-                    <div class="col-sm-12 wbc2"><b>@DateTime.Now.ToShortDateString()</b></div>
-                </div>
-            </div>
-            <div class="col-sm-12 pb0">
-                <div class="row col-xs-12 col-lg-10 col-xl-9 pb0">
-                    <div class="col-sm-12 wbc1"></div>
-                    <div class="col-md-12 col-lg-7 pb0">
-                        <div class="col-sm-12 bbc">High electricity prices using historical volatility</div>
-                    </div>
-                    <div class="col-md-12 col-lg-5 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.High.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-                    </div>
-                    <div class="col-sm-12 wbc1 clear"></div>
-                    <div class="col-md-12 col-lg-7 pb0">
-                        <div class="col-sm-12 bbc">Medium electricity prices using historical volatility</div>
-                    </div>
-                    <div class="col-md-12 col-lg-5 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.Medium.ToString("0.##")</b>-<b>@ViewBag.High.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-                    </div>
-                    <div class="col-sm-12 wbc1 clear"></div>
-                    <div class="col-md-12 col-lg-7 pb0">
-                        <div class="col-sm-12 bbc">Low electricity prices using historical volatility</div>
-                    </div>
-                    <div class="col-md-12 col-lg-5 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.Low.ToString("0.##")</b>-<b>@ViewBag.Medium.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-                    </div>
-                    <div class="col-sm-12 wbc1 clear"></div>
-                    <div class="col-md-12 col-lg-7 pb0">
-                        <div class="col-sm-12 bbc">Ultra-low electricity prices using historical volatility</div>
-                    </div>
-                    <div class="col-md-12 col-lg-5 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.Low.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-                    </div>
-                    <div class="col-sm-12 wbc1 clear"></div>
-                    <div class="col-md-12 col-lg-7 pb0">
-                        <div class="col-sm-12 bbc">Lowest price during reporting period</div>
-                    </div>
-                    <div class="col-md-12 col-lg-5 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.MinMarket_Value.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b><b> on @ViewBag.MinMarket_Date.ToShortDateString()</b></div>
-                    </div>
-                    <div class="col-sm-12 wbc1 clear"></div>
-                    <div class="bbc col-md-12 col-lg-4 pb0">
-                        <div class="col-sm-12 bbc1">Prices were (tick one box)</div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                        <div class="wbc">
-                            <div class="col-xs-12 col-sm-12 pb0">High</div>
-                        </div>
-                        <div class="ybc1">
-                            <div class="col-xs-12 col-sm-12 pb0">@ViewBag.Highx</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                        <div class="wbc">
-                            <div class="col-xs-12 col-sm-12 pb0">Medium</div>
-                        </div>
-                        <div class="ybc1">
-                            <div class="col-xs-12 col-sm-12 pb0">@ViewBag.Mediumx</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                        <div class="wbc">
-                            <div class="col-xs-12 col-sm-12 pb0">Low</div>
-                        </div>
-                        <div class="ybc1">
-                            <div class="col-xs-12 col-sm-12 pb0">@ViewBag.Lowx</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                        <div class="wbc">
-                            <div class="col-xs-12 col-sm-12 pb0">Ultra-low</div>
-                        </div>
-                        <div class="ybc1">
-                            <div class="col-xs-12 col-sm-12 pb0">@ViewBag.UltraLowx</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-lg-2 col-xl-3"></div>
-            </div>
-        </div>
-        <div class="whitebackground">
-            <div class="col-sm-12  pb0">
-                <div class="heading1">
-                    <h4><span><b>Forecast Consumption ("FC")</b></span></h4>
-                    <div class="line2"></div>
-                </div>
-                <div class="row col-sm-12 pb0">
-                    <div class="col-sm-12 wbc1"></div>
-                    <div class="col-md-12 col-lg-2 pb0">
-                        <div class="col-sm-12 bbc"><b>Base load</b></div>
-                        <div class="col-sm-12 fd"><b></b></div>
-                    </div>
-                    <div class="col-md-12 col-lg-2 pb0 fd">
-                        <div class="col-sm-12 fd"><b></b></div>
-                        <div class="col-sm-12 fd"><b></b></div>
-                    </div>
-                    <div class="col-md-12 col-lg-2 pb0 fd">
-                        <div class="col-sm-12 fd"><b></b></div>
-                        <div class="col-sm-12 fd"><b></b></div>
-                    </div>
-                    <div class="col-md-12 col-lg-4 pb0">
-                        <div class="col-sm-6 fd"><b></b></div>
-                        <div class="col-sm-12 ybc"><b>@ViewBag.VolumeTotal.ToString("0.##") @ViewBag.UnitName</b></div>
-                    </div>
-                    <div class="col-md-12 col-lg-2 pb0 fd">
-                        <div class="col-sm-12 fd"><b></b></div>
-                        <div class="col-sm-12 fd"><b></b></div>
-                    </div>
-                </div>
-                <div class="col-sm-4"></div>
-            </div>
-        </div>
-        @if (ViewBag.MaxPriceFixed != null)
-        {
-            if (ViewBag.VolumeFixProcent != null)
-            {
-                <div class="whitebackground">
-                    <div class="col-sm-12  pb0">
-                        <div class="heading1">
-                            <h4><span><b>Year ahead fixings</b></span></h4>
-                            <div class="line2"></div>
-                        </div>
-                        <div class="row col-sm-12 pb0">
-                            <div class="col-sm-12 wbc1"></div>
-                            <div class="col-md-12 col-lg-2 pb0">
-                                <div class="col-sm-12 bbc"><b>Base load</b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-0 col-lg-2 fd pb0">
-                                <div class="col-sm-12 fd"><b></b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">Price fixed</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.MaxPriceFixed.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-4 pb0">
-                                <div class="row col-sm-12 pb0">
-                                    <div class="col-sm-6 wbc">LV</div><div class="col-sm-6 wbc">MW</div>
-                                </div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent.ToString("0.##")% of FC</b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">Policy compliant</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant1</b></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4"></div>
-                    </div>
-                </div>
-            }
-        }
-        @if (ViewBag.MaxPriceFixed1 != null)
-        {
-            if (ViewBag.VolumeFixProcent1 != null)
-            {
-                <div class="whitebackground">
-                    <div class="col-sm-12 pb0">
-
-                        <div class="heading1">
-                            <h4><span><b>1 Year beyond Year ahead fixings</b></span></h4>
-                            <div class="line2"></div>
-                        </div>
-
-                        <div class="row col-sm-12 pb0">
-                            <div class="col-sm-12 wbc1"></div>
-                            <div class="col-md-12 col-lg-2 pb0">
-                                <div class="col-sm-12 bbc"><b>Base load</b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0 fd">
-                                <div class="col-sm-12 fd"><b></b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">Price fixed</div>
-                                <div class="col-sm-12 ybc">
-                                    <b>
-                                        @ViewBag.MaxPriceFixed1.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName
-                                    </b>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0 fd">
-                                <div class="col-sm-12 fd"><b></b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">MW</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent1.ToString("0.##")% of FC</b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">Policy compliant</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant2</b></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4"></div>
-                    </div>
-                </div>
-            }
-        }
-        @if (ViewBag.MaxPriceFixed2 != null)
-        {
-            if (ViewBag.VolumeFixProcent2 != null)
-            {
-                <div class="whitebackground">
-                    <div class="col-sm-12 pb0">
-
-                        <div class="heading1">
-                            <h4><span><b>2 Years beyond Year ahead fixings</b></span></h4>
-                            <div class="line2"></div>
-                        </div>
-                        <div class="row col-sm-12 pb0">
-                            <div class="col-sm-12 wbc1"></div>
-                            <div class="l-md-12 col-lg-2 pb0">
-                                <div class="col-sm-12 bbc"><b>Base load</b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0 fd">
-                                <div class="col-sm-12 fd"><b></b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">Price fixed</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.MaxPriceFixed2.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 fd pb0">
-                                <div class="col-sm-12 fd"><b></b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">MW</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent2.ToString("0.##")% of FC</b></div>
-                            </div>
-                            <div class="ccol-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">Policy compliant</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant3</b></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4"></div>
-                    </div>
-                </div>
-            }
-        }
-</section>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<table class="container">
-    <thead>
-        <tr>
-            <th><h3 class="col-sm-12 pb0 heading1"><span><b>VPC ELECTRICITY POLICY</b></span></h3><div class="line2"></div></th>
-        </tr>
-        <tr>
-            <th><h3 class="col-sm-12 pb0 color-grey"><span><b>APPENDIX A</b></span></h3></th>
-        </tr>
-        <tr class="row col-xs-12 pb0">
-            <th class="col-sm-12 col-md-6 col-lg-6 col-xl-9 fb"><h4 class="bacground-grey"><span><b>OPERATING COMPANY</b></span></h4></th>
-            <th class="col-sm-12 col-md-6 col-lg-6 col-xl-3"><h4 class="bacground-orange"><span>@ViewBag.raportname</span></h4></th>
-        </tr>
-        <tr class="row col-xs-12 pb0">
-            <th class="col-sm-7 col-md-6 col-lg-10 col-xl-9"><h5 class="yelou-greed"><span><b>REPORTING PERIOD:</b></span></h5></th>
-            <th class="col-sm-5 col-md-6 col-lg-2 col-xl-3"><div class="col-sm-12 wbc2"><b>@DateTime.Now.ToShortDateString()</b></div></th>
-        </tr>
-    </thead>
-    <tbody class="row">
-        <tr class="col-sm-12 wbc1 clear"></tr>
-    </tbody>
+<table width="100%">
     <tbody>
-        <tr class="row col-sm-7 col-md-6 col-lg-10 col-xl-9">
-            <td class="col-md-12 col-lg-7 bbc">High electricity prices using historical volatility</td>
-            <td class="col-md-12 col-lg-5  ybc"><b>@ViewBag.High.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></td>
-        </tr>
-        <tr class="col-sm-5 col-md-6 col-lg-2 col-xl-3"></tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="col-sm-12 wbc1 clear"></tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="col-sm-12 pb0">
-            <td class="col-md-12 col-lg-7  bbc"><div>Medium electricity prices using historical volatility</div></td>
-            <td class="col-md-12 col-lg-5  ybc"><div><b>@ViewBag.Medium.ToString("0.##")</b>-<b>@ViewBag.High.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div></td>
-        </tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="row col-sm-12 wbc1 clear"></tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="row col-sm-12 pb0">
-            <td class="col-md-12 col-lg-7  bbc">Low electricity prices using historical volatility</td>
-            <td class="col-md-12 col-lg-5  ybc"><b>@ViewBag.Low.ToString("0.##")</b>-<b>@ViewBag.Medium.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></td>
-        </tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="row col-sm-12 wbc1 clear"></tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="row col-sm-12 pb0">
-            <td class="col-md-12 col-lg-7  bbc">Ultra-low electricity prices using historical volatility</td>
-            <td class="col-md-12 col-lg-5  ybc"><b>@ViewBag.Low.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></td>
-        </tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="row col-sm-12 wbc1 clear"></tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="row col-sm-12 pb0">
-            <td class="col-md-12 col-lg-7  bbc">Lowest price during reporting period</td>
-            <td class="col-md-12 col-lg-5  ybc"><b>@ViewBag.MinMarket_Value.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b><b> on @ViewBag.MinMarket_Date.ToShortDateString()</b></td>
-        </tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="row col-sm-12 wbc1 clear"></tr>
-    </tbody>
-    <tbody class="row">
-        <tr class="row col-sm-12 pb0">
-            <td class="bbc col-md-12 col-lg-4 pb0">
-                <div class="col-sm-12 bbc1">Prices were (tick one box)</div>
-            </td>
-            <td>
-                <div class="col-xs-12 col-sm-12 pb0">High</div>
-                <div class="col-sm-12 ybc1"></div>
-            </td>
-            <td>
-                <div class="col-xs-12 col-sm-12 pb0">Medium</div>
-                <div class="col-sm-12 ybc1"></div>
-            </td>
-            <td>
-                <div class="col-xs-12 col-sm-12 pb0">Low</div>
-                <div class="col-sm-12 ybc1"></div>
-            </td>
-            <td>
-                <div class="col-xs-12 col-sm-12 pb0">Ultra-low</div>
-                <div class="col-sm-12 ybc1"></div>
+        <tr>
+            <td colspan="24">
+                <h3 style="text-align: left; border-bottom: 2px solid rgb(191,191,191);"><b>VPC ELECTRICITY POLICY</b></h3>
             </td>
         </tr>
-        <tr class="row col-sm-12 wbc1 clear"></tr>
+        <tr>
+            <td colspan="24">
+                <h3 style="text-align: left;"><b>APPENDIX A</b></h3>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="18">
+                <h4 style="text-align: left;"><b>OPERATING COMPANY</b></h4>
+            </td>
+            <td colspan="6">
+                <h4 style="text-align: center;"><b>@ViewBag.raportname</b></h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="18">
+                <h5 style="text-align: right;"><b>REPORTING PERIOD:</b></h5>
+            </td>
+            <td colspan="6">
+                <h5 style="text-align: center;"><b>@DateTime.Now.ToShortDateString()</b></h5>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="12" style="border: 1px solid rgb(191,191,191);">High electricity prices using historical volatility</td>
+            <td colspan="6" style="text-align: center; border: 1px solid rgb(191,191,191);">@ViewBag.High.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</td>
+            <td colspan="6"></td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="12" style="border: 1px solid rgb(191,191,191);"><div>Medium electricity prices using historical volatility</div></td>
+            <td colspan="6" style="text-align: center; border: 1px solid rgb(191,191,191);"><div>@ViewBag.Medium.ToString("0.##")- @ViewBag.High.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</div></td>
+            <td colspan="6"></td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="12" style="border: 1px solid rgb(191,191,191);">Low electricity prices using historical volatility</td>
+            <td colspan="6" style="text-align: center; border: 1px solid rgb(191,191,191);">@ViewBag.Low.ToString("0.##")-@ViewBag.Medium.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</td>
+            <td colspan="6"></td>
+        </tr>
+        <tr style="height: 20px;"></tr>
+        <tr>
+            <td colspan="12" style="border: 1px solid rgb(191,191,191);">Ultra-low electricity prices using historical volatility</td>
+            <td colspan="6" style="text-align: center; border: 1px solid rgb(191,191,191);">@ViewBag.Low.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</td>
+            <td colspan="6"></td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="12" style="border: 1px solid rgb(191,191,191);">Lowest price during reporting period</td>
+            <td colspan="6" style="text-align: center; border: 1px solid rgb(191,191,191);">@ViewBag.MinMarket_Value.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName on @ViewBag.MinMarket_Date.ToShortDateString()</td>
+            <td colspan="6"></td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td  colspan="6" style="border: 1px solid rgb(191,191,191);">
+                <div>Prices were (tick one box)</div>
+            </td>
+            <td colspan="3" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div>High</div>
+                <div style="height: 20px; border-top: 1px solid rgb(191,191,191);">@ViewBag.Highx</div>
+            </td>
+            <td colspan="3" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div>Medium</div>
+                <div style="height: 20px; border-top: 1px solid rgb(191,191,191);">@ViewBag.Mediumx</div>
+            </td>
+            <td colspan="3" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div>Low</div>
+                <div style="height: 20px; border-top: 1px solid rgb(191,191,191);">@ViewBag.Lowx</div>
+            </td>
+            <td colspan="3" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div>Ultra-low</div>
+                <div style="height: 20px; border-top: 1px solid rgb(191,191,191);">@ViewBag.UltraLowx</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
     </tbody>
-
-
-
-
-
-    <tbody class="col-sm-12 pb0">
-        <tr></tr>
-        <tr></tr>
+    <tr>
+        <td style="height: 20px;"></td>
+    </tr>
+    <tbody>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="24">
+                <h4 style="text-align: left; border-bottom: 2px solid rgb(191,191,191);"><b>Forecast Consumption ("FC")</b></h4>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b>Base load</b></div>
+            </td>
+            <td colspan="4" style="text-align: center;">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center;">
+                <div><b></b></div>
+            </td>
+            <td colspan="8" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div><b>@ViewBag.VolumeTotal.ToString("0.##") @ViewBag.UnitName</b></div>
+            </td>
+            <td colspan="4" style="text-align: center; ">
+                <div><b></b></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
     </tbody>
-    <tbody class="col-sm-12 pb0">
-        <tr></tr>
-        <tr></tr>
+@if (ViewBag.MaxPriceFixed != null)
+{
+    if (ViewBag.VolumeFixProcent != null)
+    {
+    <tbody>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="24">
+                <h4 style="text-align: left; border-bottom: 2px solid rgb(191,191,191);"><b>Year ahead fixings</b></h4>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b>Base load</b></div>
+            </td>
+            <td colspan="4" style="text-align: center;">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">Price fixed</div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">LV</div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">MW</div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">Policy compliant</div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center;">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.MaxPriceFixed.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</div>
+            </td>
+            <td colspan="8" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.VolumeFixProcent.ToString("0.##")% of FC</div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.PolicyCompliant1</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
     </tbody>
-    <tbody class="col-sm-12 pb0">
-        <tr></tr>
-        <tr></tr>
+    }
+}
+@if (ViewBag.MaxPriceFixed1 != null)
+{
+    if (ViewBag.VolumeFixProcent1 != null)
+    {
+    <tbody>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="24">
+                <h4 style="text-align: left; border-bottom: 2px solid rgb(191,191,191);"><b>1 Year beyond Year ahead fixings</b></h4>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b>Base load</b></div>
+            </td>
+            <td colspan="4" style="text-align: center;">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">Price fixed</div>
+            </td>
+            <td colspan="4">
+                <div style="height: 20px;"></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">MW</div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">Policy compliant</div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center;">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.MaxPriceFixed1.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</div>
+            </td>
+            <td colspan="4">
+                <div style="height: 20px;"></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.VolumeFixProcent1.ToString("0.##")% of FC</div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.PolicyCompliant2</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
     </tbody>
-    <tbody class="col-sm-12 pb0">
-        <tr></tr>
-        <tr></tr>
+    }
+}
+@if (ViewBag.MaxPriceFixed2 != null)
+{
+    if (ViewBag.VolumeFixProcent2 != null)
+    {
+    <tbody>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="24">
+                <h4 style="text-align: left; border-bottom: 2px solid rgb(191,191,191);"><b>2 Year beyond Year ahead fixings</b></h4>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b>Base load</b></div>
+            </td>
+            <td colspan="4" style="text-align: center;">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">Price fixed</div>
+            </td>
+            <td colspan="4">
+                <div style="height: 20px;"></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">MW</div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">Policy compliant</div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center;">
+                <div><b></b></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.MaxPriceFixed2.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</div>
+            </td>
+            <td colspan="4" >
+                <div style="height: 20px;"></div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.VolumeFixProcent2.ToString("0.##")% of FC</div>
+            </td>
+            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                <div style="height: 20px;">@ViewBag.PolicyCompliant3</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px;"></td>
+        </tr>
+
     </tbody>
+    }
+}
+    <tr>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+        <td width="2.4%"></td>
+    </tr>
 </table>
-<TABLE border=3>
-    <TR>
-        <TD>ячейка</TD><TD>ячейка</TD><TD>ячейка</TD><TD>ячейка</TD>
-        <TD colspan=4>1 ячейка</TD>
-        <TD colspan=4>2 ячейка</TD>
-        <TD rowspan=4>10 ячейка</TD>
-    </TR>
-    <TR>
-        <TD colspan=4>1 ячейка</TD>
-        <TD colspan=4>2 ячейка</TD>
-    <TR>
-        <TD colspan=4>1 ячейка</TD>
-        <TD colspan=4>2 ячейка</TD>
-    <TR>
-        <TD colspan=4>1 ячейка</TD>
-        <TD colspan=4>2 ячейка</TD>
-</TABLE>
