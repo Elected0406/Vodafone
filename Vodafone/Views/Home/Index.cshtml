@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "";
 }
-<a href="@Url.Action("ReportPDF", "Home")" class="button bacground-grey"><h4>Export to PDF</h4></a>
+<a href="@Url.Action("ReportPDF", "Home", new { key = ViewBag.key, code = ViewBag.code }, null)" class="button bacground-grey"><h4>Export to PDF</h4></a>
 <section class="contentblock">
     <div class="container">
         <div class="whitebackground">

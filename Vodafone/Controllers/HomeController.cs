@@ -19,7 +19,8 @@ namespace Vodafone.Controllers
         [HttpGet]        
         public ViewResult Index(Keyfromlink input)
         {
-
+            ViewBag.key = input.key;
+            ViewBag.code = input.code;
             if (input.key != null)
             {
                 var formulaid = db.fnFormulaByKey(input.key).FirstOrDefault().ID;
@@ -199,7 +200,6 @@ namespace Vodafone.Controllers
         }        
         public ActionResult GetReport(Keyfromlink input)
         {
-            
             if (input.key != null)
             {
                 var formulaid = db.fnFormulaByKey(input.key).FirstOrDefault().ID;
@@ -373,25 +373,14 @@ namespace Vodafone.Controllers
                 ViewBag.PolicyCompliant2 = "null";
                 ViewBag.PolicyCompliant3 = "null";
             }
-
             return View();
-}
+        }
         public ActionResult ReportPDF(Keyfromlink input)
         {
-            return new Rotativa.MVC.ViewAsPdf("GetReport");
-        }
-        public ActionResult About()
-        {
-
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var Valuefrom = new Keyfromlink();
+            Valuefrom.key = input.key;
+            Valuefrom.code = input.code;
+            return new Rotativa.MVC.ActionAsPdf("GetReport", Valuefrom) { FileName = "Report.pdf" };
         }
     }
     public class Keyfromlink

@@ -9317,4 +9317,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     display: none !important;
   }
 }
+@media print, (min-width: 10px) {
+    .hidden-xs;
+
+    } 
+}
 /*# sourceMappingURL=bootstrap.css.map */
