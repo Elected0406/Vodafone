@@ -60,7 +60,8 @@ namespace Vodafone.Controllers
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "Low") { ViewBag.Lowx = "X"; } else { ViewBag.Lowx = " "; }
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "High") { ViewBag.Highx = "X"; } else { ViewBag.Highx = " "; }
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
-                        ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;                 
+                        ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
                     }
                     if (count == 2)
                     {
@@ -82,6 +83,8 @@ namespace Vodafone.Controllers
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
                         ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant2 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
+                        if (FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year1 = ""; }
                     }
                     if (count >= 3)
                     {
@@ -108,6 +111,9 @@ namespace Vodafone.Controllers
                         ViewBag.PolicyCompliant3 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.key = input.key;
                         ViewBag.code = input.code;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
+                        if (FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year1 = ""; }
+                        if (FormulaVPCList.Skip(2).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year2 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year2 = ""; }
                     }
                 }
                 else
@@ -129,6 +135,7 @@ namespace Vodafone.Controllers
                         if (FormulaVPC.Take(1).FirstOrDefault().Indicator == "High") { ViewBag.Highx = "X"; } else { ViewBag.Highx = " "; }
                         if (FormulaVPC.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
                         ViewBag.PolicyCompliant1 = FormulaVPC.Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
                     }
                     if (count2 == 2)
                     {
@@ -150,6 +157,8 @@ namespace Vodafone.Controllers
                         if (FormulaVPC.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
                         ViewBag.PolicyCompliant1 = FormulaVPC.Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant2 = FormulaVPC.Skip(1).Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
+                        if (FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year1 = ""; }
                     }
                     if (count2 >= 3)
                     {
@@ -174,6 +183,9 @@ namespace Vodafone.Controllers
                         ViewBag.PolicyCompliant1 = FormulaVPC.Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant2 = FormulaVPC.Skip(1).Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant3 = FormulaVPC.Skip(2).Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
+                        if (FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year1 = ""; }
+                        if (FormulaVPCList.Skip(2).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year2 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year2 = ""; }
                     }
                 }
             }
@@ -195,6 +207,9 @@ namespace Vodafone.Controllers
                 ViewBag.PolicyCompliant1 = "null";
                 ViewBag.PolicyCompliant2 = "null";
                 ViewBag.PolicyCompliant3 = "null";
+                @ViewBag.Year = "null";
+                @ViewBag.Year1 = "null";
+                @ViewBag.Year2 = "null";
             }
             return View();
         }        
@@ -240,6 +255,7 @@ namespace Vodafone.Controllers
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "High") { ViewBag.Highx = "X"; } else { ViewBag.Highx = " "; }
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
                         ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
                     }
                     if (count == 2)
                     {
@@ -261,6 +277,8 @@ namespace Vodafone.Controllers
                         if (FormulaVPCList.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
                         ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant2 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
+                        if (FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year1 = ""; }
                     }
                     if (count >= 3)
                     {
@@ -285,6 +303,9 @@ namespace Vodafone.Controllers
                         ViewBag.PolicyCompliant1 = FormulaVPCList.Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant2 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant3 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
+                        if (FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year1 = ""; }
+                        if (FormulaVPCList.Skip(2).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year2 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year2 = ""; }
                     }
                 }
                 else
@@ -306,6 +327,7 @@ namespace Vodafone.Controllers
                         if (FormulaVPC.Take(1).FirstOrDefault().Indicator == "High") { ViewBag.Highx = "X"; } else { ViewBag.Highx = " "; }
                         if (FormulaVPC.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
                         ViewBag.PolicyCompliant1 = FormulaVPC.Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
                     }
                     if (count2 == 2)
                     {
@@ -327,6 +349,8 @@ namespace Vodafone.Controllers
                         if (FormulaVPC.Take(1).FirstOrDefault().Indicator == "UltraLow") { ViewBag.UltraLowx = "X"; } else { ViewBag.UltraLowx = " "; }
                         ViewBag.PolicyCompliant1 = FormulaVPC.Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant2 = FormulaVPC.Skip(1).Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
+                        if (FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year1 = ""; }
                     }
                     if (count2 >= 3)
                     {
@@ -351,6 +375,9 @@ namespace Vodafone.Controllers
                         ViewBag.PolicyCompliant1 = FormulaVPC.Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant2 = FormulaVPC.Skip(1).Take(1).FirstOrDefault().PolicyCompliant;
                         ViewBag.PolicyCompliant3 = FormulaVPC.Skip(2).Take(1).FirstOrDefault().PolicyCompliant;
+                        if (FormulaVPCList.Take(1).FirstOrDefault().Year != null) { @ViewBag.Year = FormulaVPCList.Take(1).FirstOrDefault().Year; } else { @ViewBag.Year = ""; }
+                        if (FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year1 = FormulaVPCList.Skip(1).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year1 = ""; }
+                        if (FormulaVPCList.Skip(2).Take(1).FirstOrDefault().Year != null) { @ViewBag.Year2 = FormulaVPCList.Skip(2).Take(1).FirstOrDefault().Year; } else { @ViewBag.Year2 = ""; }
                     }
                 }
             }
@@ -372,6 +399,9 @@ namespace Vodafone.Controllers
                 ViewBag.PolicyCompliant1 = "null";
                 ViewBag.PolicyCompliant2 = "null";
                 ViewBag.PolicyCompliant3 = "null";
+                @ViewBag.Year = "null";
+                @ViewBag.Year1 = "null";
+                @ViewBag.Year2 = "null";
             }
             return View();
         }

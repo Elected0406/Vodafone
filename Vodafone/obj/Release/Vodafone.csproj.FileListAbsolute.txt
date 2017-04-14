@@ -85,3 +85,4 @@ D:\Projects\Vodafone\Vodafone\obj\Release\Vodafone.dll
 D:\Projects\Vodafone\Vodafone\obj\Release\Vodafone.pdb
 D:\Projects\Vodafone\Vodafone\bin\DocumentFormat.OpenXml.dll
 D:\Projects\Vodafone\Vodafone\bin\DocumentFormat.OpenXml.xml
+D:\Projects\Vodafone\Vodafone\obj\Release\Vodafone.csprojResolveAssemblyReference.cache

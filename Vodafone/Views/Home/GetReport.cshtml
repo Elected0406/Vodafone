@@ -1,4 +1,4 @@
-﻿<link rel="stylesheet" href="~/Content/GetReport.css"/>
+﻿<link rel="stylesheet" href="~/Content/GetReport.css" />
 @model  Vodafone.Models.fnFormulaVPC_Result
 @{
     ViewData["Title"] = "";
@@ -78,7 +78,7 @@
             <td style="height: 20px;"></td>
         </tr>
         <tr>
-            <td  colspan="6" style="border: 1px solid rgb(191,191,191);">
+            <td colspan="6" style="border: 1px solid rgb(191,191,191);">
                 <div>Prices were (tick one box)</div>
             </td>
             <td colspan="3" style="text-align: center; border: 1px solid rgb(191,191,191);">
@@ -141,199 +141,199 @@
             <td style="height: 20px;"></td>
         </tr>
     </tbody>
-@if (ViewBag.MaxPriceFixed != null)
-{
-    if (ViewBag.VolumeFixProcent != null)
+    @if (ViewBag.MaxPriceFixed != null)
     {
-    <tbody>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-        <tr>
-            <td colspan="6">
-                <h4 style="text-align: left; padding-bottom: 10px; border-bottom: 2px solid rgb(237,125,49);"><b style="color: rgb(89,89,89);">Year ahead fixings</b></h4>
-            </td>
-            <td colspan="18">
-                <div style="text-align: left;padding-bottom: 28px;  border-bottom: 2px solid rgb(191,191,191);"></div>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">Base load</b></div>
-            </td>
-            <td colspan="4" style="text-align: center;">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">Price fixed</div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">LV</div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">MW</div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">Policy compliant</div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center;">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.MaxPriceFixed.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-            </td>
-            <td colspan="8" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.VolumeFixProcent.ToString("0.##")% of FC</b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.PolicyCompliant1</b></div>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-    </tbody>
+        if (ViewBag.VolumeFixProcent != null)
+        {
+            <tbody>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <h4 style="text-align: left; padding-bottom: 10px; border-bottom: 2px solid rgb(237,125,49);"><b style="color: rgb(89,89,89);">@ViewBag.Year Year ahead fixings</b></h4>
+                    </td>
+                    <td colspan="17">
+                        <div style="text-align: left;padding-bottom: 28px;  border-bottom: 2px solid rgb(191,191,191);"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">Base load</b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center;">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">Price fixed</div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">LV</div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">MW</div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">Policy compliant</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center;">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.MaxPriceFixed.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
+                    </td>
+                    <td colspan="8" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.VolumeFixProcent.ToString("0.##")% of FC</b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.PolicyCompliant1</b></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
+            </tbody>
+        }
     }
-}
-@if (ViewBag.MaxPriceFixed1 != null)
-{
-    if (ViewBag.VolumeFixProcent1 != null)
+    @if (ViewBag.MaxPriceFixed1 != null)
     {
-    <tbody>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-        <tr>
-            <td colspan="11">
-                <h4 style="text-align: left; padding-bottom: 10px; border-bottom: 2px solid rgb(237,125,49);"><b style="color: rgb(89,89,89);">1 Year beyond Year ahead fixings</b></h4>
-            </td>
-            <td colspan="13">
-                <div style="text-align: left;padding-bottom: 28px;  border-bottom: 2px solid rgb(191,191,191);"></div>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">Base load</b></div>
-            </td>
-            <td colspan="4" style="text-align: center;">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">Price fixed</div>
-            </td>
-            <td colspan="4">
-                <div style="height: 20px;"></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">MW</div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">Policy compliant</div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center;">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.MaxPriceFixed1.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-            </td>
-            <td colspan="4">
-                <div style="height: 20px;"></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.VolumeFixProcent1.ToString("0.##")% of FC</b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.PolicyCompliant2</b></div>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-    </tbody>
+        if (ViewBag.VolumeFixProcent1 != null)
+        {
+            <tbody>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
+                <tr>
+                    <td colspan="12">
+                        <h4 style="text-align: left; padding-bottom: 10px; border-bottom: 2px solid rgb(237,125,49);"><b style="color: rgb(89,89,89);">@ViewBag.Year1 1 Year beyond Year ahead fixings</b></h4>
+                    </td>
+                    <td colspan="12">
+                        <div style="text-align: left;padding-bottom: 28px;  border-bottom: 2px solid rgb(191,191,191);"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">Base load</b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center;">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">Price fixed</div>
+                    </td>
+                    <td colspan="4">
+                        <div style="height: 20px;"></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">MW</div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">Policy compliant</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center;">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.MaxPriceFixed1.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
+                    </td>
+                    <td colspan="4">
+                        <div style="height: 20px;"></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.VolumeFixProcent1.ToString("0.##")% of FC</b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.PolicyCompliant2</b></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
+            </tbody>
+        }
     }
-}
-@if (ViewBag.MaxPriceFixed2 != null)
-{
-    if (ViewBag.VolumeFixProcent2 != null)
+    @if (ViewBag.MaxPriceFixed2 != null)
     {
-    <tbody>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-        <tr>
-            <td colspan="11">
-                <h4 style="text-align: left; padding-bottom: 10px; border-bottom: 2px solid rgb(237,125,49);"><b style="color: rgb(89,89,89);">2 Year beyond Year ahead fixings</b></h4>
-            </td>
-            <td colspan="13">
-                <div style="text-align: left;padding-bottom: 28px;  border-bottom: 2px solid rgb(191,191,191);"></div>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">Base load</b></div>
-            </td>
-            <td colspan="4" style="text-align: center;">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">Price fixed</div>
-            </td>
-            <td colspan="4">
-                <div style="height: 20px;"></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">MW</div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;">Policy compliant</div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center;">
-                <div><b style="color: rgb(89,89,89);"></b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.MaxPriceFixed2.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-            </td>
-            <td colspan="4" >
-                <div style="height: 20px;"></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.VolumeFixProcent2.ToString("0.##")% of FC</b></div>
-            </td>
-            <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
-                <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.PolicyCompliant3</b></div>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
+        if (ViewBag.VolumeFixProcent2 != null)
+        {
+            <tbody>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
+                <tr>
+                    <td colspan="12">
+                        <h4 style="text-align: left; padding-bottom: 10px; border-bottom: 2px solid rgb(237,125,49);"><b style="color: rgb(89,89,89);">@ViewBag.Year2 2 Year beyond Year ahead fixings</b></h4>
+                    </td>
+                    <td colspan="12">
+                        <div style="text-align: left;padding-bottom: 28px;  border-bottom: 2px solid rgb(191,191,191);"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">Base load</b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center;">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">Price fixed</div>
+                    </td>
+                    <td colspan="4">
+                        <div style="height: 20px;"></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">MW</div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;">Policy compliant</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center;">
+                        <div><b style="color: rgb(89,89,89);"></b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.MaxPriceFixed2.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
+                    </td>
+                    <td colspan="4">
+                        <div style="height: 20px;"></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.VolumeFixProcent2.ToString("0.##")% of FC</b></div>
+                    </td>
+                    <td colspan="4" style="text-align: center; border: 1px solid rgb(191,191,191);">
+                        <div style="height: 20px;"><b style="color: rgb(89,89,89);">@ViewBag.PolicyCompliant3</b></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 20px;"></td>
+                </tr>
 
-    </tbody>
+            </tbody>
+        }
     }
-}
     <tr>
         <td width="2.4%"></td>
         <td width="2.4%"></td>

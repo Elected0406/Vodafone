@@ -8,7 +8,7 @@
         <div class="whitebackground">
             <div class="col-sm-12 pb0">
                 <div class="heading1">
-                    <h3><span><b>VPC ELECTRICITY POLICY</b></span><div class="line2"></div></h3>
+                    <h3><span><b>EP01 Energy Policy</b></span><div class="line2"></div></h3>
                 </div>
             </div>
             <div class="col-sm-12"><h3 class="color-grey"><span><b>APPENDIX A</b></span></h3></div>
@@ -139,7 +139,7 @@
                 <div class="whitebackground">
                     <div class="col-sm-12  pb0">
                         <div class="heading1">
-                            <h4><span><b>Year ahead fixings</b></span><div class="line2"></div></h4>
+                            <h4><span><b>@ViewBag.Year Year ahead fixings</b></span><div class="line2"></div></h4>
                         </div>
                         <div class="row col-sm-12 pb0">
                             <div class="col-sm-12 wbc1"></div>
@@ -163,7 +163,14 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-2 pb0">
                                 <div class="col-sm-12 wbc">Policy compliant</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant1</b></div>
+                                @if (ViewBag.PolicyCompliant1 == "Yes")
+                                {
+                                    <div class="col-sm-12 ybc" style="background-color:#9eff75; height: 20px;"><b></b></div>
+                                }
+                                @if (ViewBag.PolicyCompliant1 == "No")
+                                {
+                                    <div class="col-sm-12 ybc" style="background-color:#ff7676; height: 20px;"><b></b></div>
+                                }
                             </div>
                         </div>
                         <div class="col-sm-4"></div>
@@ -179,7 +186,7 @@
                     <div class="col-sm-12 pb0">
 
                         <div class="heading1">
-                            <h4><span><b>1 Year beyond Year ahead fixings</b></span><div class="line2"></div></h4>
+                            <h4><span><b>@ViewBag.Year1 1 Year beyond Year ahead fixings</b></span><div class="line2"></div></h4>
                         </div>
 
                         <div class="row col-sm-12 pb0">
@@ -210,7 +217,14 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-2 pb0">
                                 <div class="col-sm-12 wbc">Policy compliant</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant2</b></div>
+                                @if (ViewBag.PolicyCompliant2 == "Yes")
+                                {
+                                    <div class="col-sm-12 ybc" style="background-color:#9eff75; height: 20px;"><b></b></div>
+                                }
+                                @if (ViewBag.PolicyCompliant2 == "No")
+                                {
+                                    <div class="col-sm-12 ybc" style="background-color:#ff7676; height: 20px;"><b></b></div>
+                                }
                             </div>
                         </div>
                         <div class="col-sm-4"></div>
@@ -220,45 +234,50 @@
         }
         @if (ViewBag.MaxPriceFixed2 != null)
         {
-            if (ViewBag.VolumeFixProcent2 != null)
-            {
-                <div class="whitebackground">
-                    <div class="col-sm-12 pb0">
 
-                        <div class="heading1">
-                            <h4><span><b>2 Years beyond Year ahead fixings</b></span><div class="line2"></div></h4>
-                        </div>
-                        <div class="row col-sm-12 pb0">
-                            <div class="col-sm-12 wbc1"></div>
-                            <div class="l-md-12 col-lg-2 pb0">
-                                <div class="col-sm-12 bbc"><b>Base load</b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0 fd">
-                                <div class="col-sm-12 fd"><b></b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">Price fixed</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.MaxPriceFixed2.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 fd pb0">
-                                <div class="col-sm-12 fd"><b></b></div>
-                                <div class="col-sm-12 fd"><b></b></div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">MW</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent2.ToString("0.##")% of FC</b></div>
-                            </div>
-                            <div class="ccol-sm-12 col-md-6 col-lg-2 pb0">
-                                <div class="col-sm-12 wbc">Policy compliant</div>
-                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant3</b></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4"></div>
+            <div class="whitebackground">
+                <div class="col-sm-12 pb0">
+
+                    <div class="heading1">
+                        <h4><span><b>@ViewBag.Year2 2 Years beyond Year ahead fixings</b></span><div class="line2"></div></h4>
                     </div>
+                    <div class="row col-sm-12 pb0">
+                        <div class="col-sm-12 wbc1"></div>
+                        <div class="l-md-12 col-lg-2 pb0">
+                            <div class="col-sm-12 bbc"><b>Base load</b></div>
+                            <div class="col-sm-12 fd"><b></b></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-2 pb0 fd">
+                            <div class="col-sm-12 fd"><b></b></div>
+                            <div class="col-sm-12 fd"><b></b></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-2 pb0">
+                            <div class="col-sm-12 wbc">Price fixed</div>
+                            <div class="col-sm-12 ybc"><b>@ViewBag.MaxPriceFixed2.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-2 fd pb0">
+                            <div class="col-sm-12 fd"><b></b></div>
+                            <div class="col-sm-12 fd"><b></b></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-2 pb0">
+                            <div class="col-sm-12 wbc">MW</div>
+                            <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent2.ToString("0.##")% of FC</b></div>
+                        </div>
+                        <div class="ccol-sm-12 col-md-6 col-lg-2 pb0">
+                            <div class="col-sm-12 wbc">Policy compliant</div>
+                            @if (ViewBag.PolicyCompliant3 == "Yes")
+                            {
+                                <div class="col-sm-12 ybc" style="background-color:#9eff75; height: 20px;"><b></b></div>
+                            }
+                            @if (ViewBag.PolicyCompliant3 == "No")
+                            {
+                                <div class="col-sm-12 ybc" style="background-color:#ff7676; height: 20px;"><b></b></div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
                 </div>
-            }
+            </div>
         }
     </div>
 </section>
