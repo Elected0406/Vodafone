@@ -54,13 +54,31 @@
                     <div class="col-md-12 col-lg-5 pb0">
                         <div class="col-sm-12 ybc"><b>@ViewBag.Low.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
                     </div>
-                    <div class="col-sm-12 wbc1 clear"></div>
-                    <div class="col-md-12 col-lg-7 pb0">
-                        <div class="col-sm-12 bbc">Lowest price during reporting period</div>
-                    </div>
-                    <div class="col-md-12 col-lg-5 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.MinMarket_Value.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b><b> on @ViewBag.MinMarket_Date.ToShortDateString()</b></div>
-                    </div>
+                    @if (ViewBag.MinMarket_ValueBefore == null)
+                    {
+                        if (ViewBag.MinMarket_DateBefore == null)
+                        {
+                            if (ViewBag.MinMarket_ValueAfter == null)
+                            {
+                                if (ViewBag.MinMarket_DateAfter == null)
+                                {
+                                    if (ViewBag.MinMarket_Value != null)
+                                    {
+                                        if (ViewBag.MinMarket_Date != null)
+                                        {
+                                            <div class="col-sm-12 wbc1 clear"></div>
+                                            <div class="col-md-12 col-lg-7 pb0">
+                                                <div class="col-sm-12 bbc">Lowest price during reporting period</div>
+                                            </div>
+                                            <div class="col-md-12 col-lg-5 pb0">
+                                                <div class="col-sm-12 ybc"><b>@ViewBag.MinMarket_Value.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b><b> on @ViewBag.MinMarket_Date.ToShortDateString()</b></div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                     @if (ViewBag.MinMarket_ValueBefore != null)
                     {
                         if (ViewBag.MinMarket_DateBefore != null)

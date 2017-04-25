@@ -66,14 +66,32 @@
             <td colspan="6" style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">@ViewBag.Low.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></td>
             <td colspan="6"></td>
         </tr>
-        <tr>
-            <td style="height: 20px;"></td>
-        </tr>
-        <tr>
-            <td colspan="12" style="border: 1px solid rgb(191,191,191);">Lowest price during reporting period</td>
-            <td colspan="6" style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">@ViewBag.MinMarket_Value.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName on @ViewBag.MinMarket_Date.ToShortDateString()</b></td>
-            <td colspan="6"></td>
-        </tr>
+        @if (ViewBag.MinMarket_ValueBefore == null)
+        {
+            if (ViewBag.MinMarket_DateBefore == null)
+            {
+                if (ViewBag.MinMarket_ValueAfter == null)
+                {
+                    if (ViewBag.MinMarket_DateAfter == null)
+                    {
+                        if (ViewBag.MinMarket_Value != null)
+                        {
+                            if (ViewBag.MinMarket_Date != null)
+                            {
+                                <tr>
+                                    <td style="height: 20px;"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="12" style="border: 1px solid rgb(191,191,191);">Lowest price during reporting period</td>
+                                    <td colspan="6" style="text-align: center; border: 1px solid rgb(191,191,191);"><b style="color: rgb(89,89,89);">@ViewBag.MinMarket_Value.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName on @ViewBag.MinMarket_Date.ToShortDateString()</b></td>
+                                    <td colspan="6"></td>
+                                </tr>
+                            }
+                        }
+                    }
+                }
+            }
+        }
         @if (ViewBag.MinMarket_ValueBefore != null)
         {
             if (ViewBag.MinMarket_DateBefore != null)
