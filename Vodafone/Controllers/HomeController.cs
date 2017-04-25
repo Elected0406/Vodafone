@@ -27,13 +27,43 @@ namespace Vodafone.Controllers
                 ViewBag.raportname = db.fnFormulaByKey(input.key).FirstOrDefault().Name; // выводим имя отчета
                 var CurrrencyCode = " ";
                 if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "GBP")
-                {
-                    CurrrencyCode = "£";
-                }
+                {CurrrencyCode = "£";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "CZK")
+                {CurrrencyCode = "Kč";}
                 if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "EUR")
-                {
-                    CurrrencyCode = "€";
-                }
+                {CurrrencyCode = "€";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "DKK")
+                {CurrrencyCode = "Kr";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "ISK")
+                {CurrrencyCode = "Kr";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "NOK")
+                {CurrrencyCode = "Kr";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "SEK")
+                {CurrrencyCode = "Kr";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "HUF")
+                {CurrrencyCode = "ƒ";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "PLN")
+                {CurrrencyCode = "Zł";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "CHF")
+                {CurrrencyCode = "₣";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "BGN")
+                {CurrrencyCode = "Лв";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "ALL")
+                {CurrrencyCode = "L";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "BAM")
+                {CurrrencyCode = "KM";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "MKD")
+                {CurrrencyCode = "MDen";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "RON")
+                {CurrrencyCode = "L";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "RSD")
+                {CurrrencyCode = "Din";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "HRK")
+                {CurrrencyCode = "Kn";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "GIP")
+                {CurrrencyCode = "£";}
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "TRY")
+                {CurrrencyCode = "₺";}
                 var UnitName = db.fnFormulaByKey(input.key).FirstOrDefault().UnitName;               
                 var FormulaVPC = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year); //сортировка списка по годам
                 var FormulaVPCHeader = db.fnFormulaVPCHeader(formulaid);
@@ -266,13 +296,43 @@ namespace Vodafone.Controllers
                 ViewBag.raportname = db.fnFormulaByKey(input.key).FirstOrDefault().Name; // выводим имя отчета
                 var CurrrencyCode = " ";
                 if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "GBP")
-                {
-                    CurrrencyCode = "£";
-                }
+                { CurrrencyCode = "£"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "CZK")
+                { CurrrencyCode = "Kč"; }
                 if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "EUR")
-                {
-                    CurrrencyCode = "€";
-                }
+                { CurrrencyCode = "€"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "DKK")
+                { CurrrencyCode = "Kr"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "ISK")
+                { CurrrencyCode = "Kr"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "NOK")
+                { CurrrencyCode = "Kr"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "SEK")
+                { CurrrencyCode = "Kr"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "HUF")
+                { CurrrencyCode = "ƒ"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "PLN")
+                { CurrrencyCode = "Zł"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "CHF")
+                { CurrrencyCode = "₣"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "BGN")
+                { CurrrencyCode = "Лв"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "ALL")
+                { CurrrencyCode = "L"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "BAM")
+                { CurrrencyCode = "KM"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "MKD")
+                { CurrrencyCode = "MDen"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "RON")
+                { CurrrencyCode = "L"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "RSD")
+                { CurrrencyCode = "Din"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "HRK")
+                { CurrrencyCode = "Kn"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "GIP")
+                { CurrrencyCode = "£"; }
+                if (db.fnFormulaByKey(input.key).FirstOrDefault().CurrencyCode.ToString() == "TRY")
+                { CurrrencyCode = "₺"; }
                 var UnitName = db.fnFormulaByKey(input.key).FirstOrDefault().UnitName;
                 var FormulaVPC = db.fnFormulaVPC(formulaid).OrderByDescending(p => p.Year); //сортировка списка по годам
                 var FormulaVPCHeader = db.fnFormulaVPCHeader(formulaid);
