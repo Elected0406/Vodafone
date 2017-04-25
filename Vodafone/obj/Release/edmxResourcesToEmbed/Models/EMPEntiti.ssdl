@@ -42,5 +42,31 @@
       </CollectionType>
     </ReturnType>
   </Function>
+  <Function Name="fnFormulaVPCHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Formula" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Formula" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="SumMarket_Value" Type="float" />
+          <Property Name="StdevMarket_Value" Type="float" />
+          <Property Name="AnualMarket_Value" Type="float" />
+          <Property Name="MinMarket_Date" Type="smalldatetime" />
+          <Property Name="MinMarket_Value" Type="float" />
+          <Property Name="MinMarket_DateBefore" Type="smalldatetime" />
+          <Property Name="MinMarket_ValueBefore" Type="float" />
+          <Property Name="MinMarket_DateAfter" Type="smalldatetime" />
+          <Property Name="MinMarket_ValueAfter" Type="float" />
+          <Property Name="High" Type="float" />
+          <Property Name="Medium" Type="float" />
+          <Property Name="Low" Type="float" />
+          <Property Name="CalendarCode" Type="varchar" MaxLength="3" />
+          <Property Name="RowNumber" Type="bigint" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
   <EntityContainer Name="TerminalModelStoreContainer" />
 </Schema>

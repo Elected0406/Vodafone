@@ -35,5 +35,27 @@
     <FunctionImport Name="fnFormulaVPC" IsComposable="true" ReturnType="Collection(TerminalModel.fnFormulaVPC_Result)">
       <Parameter Name="Formula" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="fnFormulaVPCHeader" IsComposable="true" ReturnType="Collection(TerminalModel.fnFormulaVPCHeader_Result)">
+      <Parameter Name="Formula" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="fnFormulaVPCHeader_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="Formula" Nullable="true" />
+    <Property Type="Int32" Name="Year" Nullable="true" />
+    <Property Type="Double" Name="SumMarket_Value" Nullable="true" />
+    <Property Type="Double" Name="StdevMarket_Value" Nullable="true" />
+    <Property Type="Double" Name="AnualMarket_Value" Nullable="true" />
+    <Property Type="DateTime" Name="MinMarket_Date" Nullable="true" Precision="16" />
+    <Property Type="Double" Name="MinMarket_Value" Nullable="true" />
+    <Property Type="DateTime" Name="MinMarket_DateBefore" Nullable="true" Precision="16" />
+    <Property Type="Double" Name="MinMarket_ValueBefore" Nullable="true" />
+    <Property Type="DateTime" Name="MinMarket_DateAfter" Nullable="true" Precision="16" />
+    <Property Type="Double" Name="MinMarket_ValueAfter" Nullable="true" />
+    <Property Type="Double" Name="High" Nullable="true" />
+    <Property Type="Double" Name="Medium" Nullable="true" />
+    <Property Type="Double" Name="Low" Nullable="true" />
+    <Property Type="String" Name="CalendarCode" Nullable="true" MaxLength="3" />
+    <Property Type="Int64" Name="RowNumber" Nullable="true" />
+  </ComplexType>
 </Schema>

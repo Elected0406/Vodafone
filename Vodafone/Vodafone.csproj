@@ -232,6 +232,9 @@
     <Compile Include="Models\fnFormulaByKey_Result.cs">
       <DependentUpon>EMPEntiti.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\fnFormulaVPCHeader_Result.cs">
+      <DependentUpon>EMPEntiti.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\fnFormulaVPC_Result.cs">
       <DependentUpon>EMPEntiti.tt</DependentUpon>
     </Compile>

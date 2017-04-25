@@ -87,6 +87,7 @@ z-index: 2;
     color:white;
     padding: 10px 0px 10px 10px;
     background-color: rgb(237,125,49);
+    min-height: 47px;
 }
 .yelou-greed{
     color: rgb(237,125,49);

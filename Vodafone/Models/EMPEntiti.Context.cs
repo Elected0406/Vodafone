@@ -47,5 +47,15 @@ namespace Vodafone.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnFormulaVPC_Result>("[TerminalEntities].[fnFormulaVPC](@Formula)", formulaParameter);
         }
+    
+        [DbFunction("TerminalEntities", "fnFormulaVPCHeader")]
+        public virtual IQueryable<fnFormulaVPCHeader_Result> fnFormulaVPCHeader(Nullable<int> formula)
+        {
+            var formulaParameter = formula.HasValue ?
+                new ObjectParameter("Formula", formula) :
+                new ObjectParameter("Formula", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fnFormulaVPCHeader_Result>("[TerminalEntities].[fnFormulaVPCHeader](@Formula)", formulaParameter);
+        }
     }
 }
