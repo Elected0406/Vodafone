@@ -8,13 +8,13 @@
         <div class="whitebackground">
             <div class="col-sm-12 pb0">
                 <div class="heading1">
-                    <h3><span><b>EP01 Energy Policy</b></span><div class="line2"></div></h3>
+                    <h3><span><b>EP01 Vodafone Energy Procurement Policy</b></span><div class="line2"></div></h3>
                 </div>
             </div>
             <div class="col-sm-12"><h3 class="color-grey"><span><b>APPENDIX A</b></span></h3></div>
             <div class="row col-xs-12 pb0">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-9 fb"><h4 class="bacground-grey"><span><b>OPERATING COMPANY</b></span></h4></div>
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"><h4 class="bacground-orange"><span>@ViewBag.raportname</span></h4></div>@*1*@
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"><h4 class="bacground-orange"><span>@ViewBag.raportname</span></h4></div>
 
                 <div class="col-sm-7 col-md-6 col-lg-10 col-xl-9">
                     <h5 class="yelou-greed"><span><b>REPORTING PERIOD:</b></span></h5>
@@ -31,7 +31,7 @@
                         <div class="col-sm-12 bbc">High electricity prices using historical volatility</div>
                     </div>
                     <div class="col-md-12 col-lg-5 pb0">
-                        <div class="col-sm-12 ybc"><b>@ViewBag.High.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>@*1*@
+                        <div class="col-sm-12 ybc"><b>@ViewBag.High.ToString("0.##") @ViewBag.CurrrencyCode/@ViewBag.UnitName</b></div>
                     </div>
                     <div class="col-sm-12 wbc1 clear"></div>
                     <div class="col-md-12 col-lg-7 pb0">
@@ -209,7 +209,7 @@
                                 <div class="whitebackground">
                                     <div class="col-sm-12  pb0">
                                         <div class="heading1">
-                                            <h4><span><b>@ViewBag.Year Fixing</b></span><div class="line2"></div></h4>
+                                            <h4><span><b>Fixed in @ViewBag.Year</b></span><div class="line2"></div></h4>
                                         </div>
                                         <div class="row col-sm-12 pb0">
                                             <div class="col-sm-12 wbc1"></div>
@@ -231,16 +231,9 @@
                                                 </div>
                                                 <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent.ToString("0.##")% of FC</b></div>
                                             </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
+                                            <div class="ccol-sm-12 col-md-6 col-lg-2 pb0">
                                                 <div class="col-sm-12 wbc">Policy compliant</div>
-                                                @if (ViewBag.PolicyCompliant == "Yes")
-                                    {
-                                                    <div class="col-sm-12 ybc" style="background-color:#9eff75; height: 20px;"><b></b></div>
-                                                }
-                                                @if (ViewBag.PolicyCompliant == "No")
-                                    {
-                                                    <div class="col-sm-12 ybc" style="background-color:#ff7676; height: 20px;"><b></b></div>
-                                                }
+                                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant</b></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4"></div>
@@ -268,7 +261,7 @@
                                     <div class="col-sm-12 pb0">
 
                                         <div class="heading1">
-                                            <h4><span><b>@ViewBag.Year1 Fixing</b></span><div class="line2"></div></h4>
+                                            <h4><span><b>Fixed in @ViewBag.Year1</b></span><div class="line2"></div></h4>
                                         </div>
 
                                         <div class="row col-sm-12 pb0">
@@ -297,16 +290,9 @@
                                                 <div class="col-sm-12 wbc">MW</div>
                                                 <div class="col-sm-12 ybc"><b>@ViewBag.VolumeFixProcent1.ToString("0.##")% of FC</b></div>
                                             </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-2 pb0">
+                                            <div class="ccol-sm-12 col-md-6 col-lg-2 pb0">
                                                 <div class="col-sm-12 wbc">Policy compliant</div>
-                                                @if (ViewBag.PolicyCompliant1 == "Yes")
-                                    {
-                                                    <div class="col-sm-12 ybc" style="background-color:#9eff75; height: 20px;"><b></b></div>
-                                                }
-                                                @if (ViewBag.PolicyCompliant1 == "No")
-                                    {
-                                                    <div class="col-sm-12 ybc" style="background-color:#ff7676; height: 20px;"><b></b></div>
-                                                }
+                                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant1</b></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4"></div>
@@ -334,7 +320,7 @@
                                     <div class="col-sm-12 pb0">
 
                                         <div class="heading1">
-                                            <h4><span><b>@ViewBag.Year2 Fixing</b></span><div class="line2"></div></h4>
+                                            <h4><span><b>Fixed in @ViewBag.Year2</b></span><div class="line2"></div></h4>
                                         </div>
                                         <div class="row col-sm-12 pb0">
                                             <div class="col-sm-12 wbc1"></div>
@@ -360,14 +346,7 @@
                                             </div>
                                             <div class="ccol-sm-12 col-md-6 col-lg-2 pb0">
                                                 <div class="col-sm-12 wbc">Policy compliant</div>
-                                                @if (ViewBag.PolicyCompliant2 == "Yes")
-                                                {
-                                                    <div class="col-sm-12 ybc" style="background-color:#9eff75; height: 20px;"><b></b></div>
-                                                }
-                                                @if (ViewBag.PolicyCompliant2 == "No")
-                                                {
-                                                    <div class="col-sm-12 ybc" style="background-color:#ff7676; height: 20px;"><b></b></div>
-                                                }
+                                                <div class="col-sm-12 ybc"><b>@ViewBag.PolicyCompliant2</b></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4"></div>
